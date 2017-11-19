@@ -6,6 +6,7 @@
 package renomearseries;
 
 import java.io.File;
+import java.util.Arrays;
 
 /**
  *
@@ -14,8 +15,11 @@ import java.io.File;
 public class Renomear {
 
     String[] arquivos = new String[99];
-
+    String nome;
+    boolean conveter = false;
     String endereco;
+    int temporada;
+    int ep = 1;
 
     int totalep = 0;
 
@@ -35,6 +39,9 @@ public class Renomear {
         int result = 0;
         int format;
         File arquivos[] = pasta.listFiles();
+
+        Arrays.sort(arquivos);
+
         listaformatos();
         for (int i = 0; i < arquivos.length; i++) {
 
@@ -51,6 +58,20 @@ public class Renomear {
                     if (result != -1 && result + format == String.valueOf(arquivos[i]).length()) {
                         //Impressão dos arquivos
                         //System.out.println(arquivos[i]);
+
+                        if (conveter == true) {
+                            System.out.println(arquivos[i]);
+
+                            if (ep > 9) {
+                                File novo = new File(endereco + "\\S0" + (temporada) + "E" + (ep) + " " + nome + formatos[j]);
+                                arquivos[i].renameTo(novo);
+                            } else {
+                                File novo = new File(endereco + "\\S0" + (temporada) + "E0" + (ep) + " " + nome + formatos[j]);
+                                arquivos[i].renameTo(novo);
+                            }
+
+                            ep++;
+                        }
 
                         totalep++;
                     }
@@ -72,6 +93,24 @@ public class Renomear {
         pesquisa(pasta);
 
         return (totalep);
+    }
+
+    public void RenomearArquivos(String endereco, int temporada, String nome) {
+
+        //System.out.println(endereco);
+        //System.out.println(temporada);
+        //System.out.println(nome);
+        this.endereco = endereco;
+        this.temporada = temporada;
+        this.nome = nome;
+
+        conveter = true;
+        totalep = 0;
+
+        File pasta = new File(endereco);
+
+        pesquisa(pasta);
+
     }
 
 }

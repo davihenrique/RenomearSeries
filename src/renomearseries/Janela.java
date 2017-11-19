@@ -198,7 +198,12 @@ public class Janela extends javax.swing.JFrame {
 
     private void jButtonRenomearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRenomearActionPerformed
         // TODO add your handling code here:
-
+       
+        Renomear x = new Renomear();
+        x.RenomearArquivos(diretorio, (int) jSpinnerTemporada.getValue(), jTextFieldNomeSeriado.getText());
+        
+        
+        
         /*  diretorio = jTextFieldEndereco.getText();
         
         System.out.println(diretorio);
@@ -230,6 +235,8 @@ public class Janela extends javax.swing.JFrame {
     private void jTextFieldEnderecoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldEnderecoMouseExited
         // TODO add your handling code here:
         diretorio = jTextFieldEndereco.getText();
+        
+        System.out.println(diretorio);
     }//GEN-LAST:event_jTextFieldEnderecoMouseExited
 
     /**
