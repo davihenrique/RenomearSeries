@@ -15,6 +15,7 @@ import java.util.Arrays;
 public class Renomear {
 
     String[] arquivos = new String[99];
+    String[] nomedoseps = new String[99];
     String nome;
     boolean conveter = false;
     String endereco;
@@ -60,12 +61,15 @@ public class Renomear {
                             /*Nomes Dos aquivos
                             System.out.println(arquivos[i]);*/
                             if (totalep > 9) {
-                                File novo = new File(endereco + "\\S" + temporada + "E" + (totalep) + " " + nome + formatos[j]);
+                                File novo = new File(endereco + "\\S" + temporada + "E" + (totalep) + " " + nome +" - "+nomedoseps[totalep-1]+ formatos[j]);
                                 arquivos[i].renameTo(novo);
                             } else {
-                                File novo = new File(endereco + "\\S" + temporada + "E0" + (totalep) + " " + nome + formatos[j]);
+                                File novo = new File(endereco + "\\S" + temporada + "E0" + (totalep) + " " + nome +" - "+nomedoseps[totalep-1]+ formatos[j]);
                                 arquivos[i].renameTo(novo);
                             }
+                            
+                            
+                         //  System.out.println(nomedoseps[totalep]);
 
                         }
                     }
@@ -85,8 +89,10 @@ public class Renomear {
         return (totalep);
     }
 
-    public boolean RenomearArquivos(String endereco, int temporada, String nome) {
+    public boolean RenomearArquivos(String endereco, int temporada, String nome, String[] arquivos) {
        
+        this.nomedoseps = arquivos;
+        
         this.endereco = endereco;
         this.nome = nome;
         if(temporada >9){
@@ -106,5 +112,6 @@ public class Renomear {
         }
 
     }
+
 
 }
