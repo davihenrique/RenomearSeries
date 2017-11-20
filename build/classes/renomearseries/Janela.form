@@ -57,8 +57,12 @@
                               </Group>
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldNomeSeriado" min="-2" pref="106" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jTextFieldNomeSeriado" min="-2" pref="106" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jButtonEpisodios" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
                                       <Component id="jLabelNomeSeriado" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -94,8 +98,9 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTextFieldNomeSeriado" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jSpinnerTemporada" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonEpisodios" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="85" max="32767" attributes="0"/>
+              <EmptySpace pref="82" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonSair" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonRenomear" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -165,6 +170,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRenomearActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonEpisodios">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Episodios"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEpisodiosActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

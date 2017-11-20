@@ -7,7 +7,6 @@ package renomearseries;
 
 import java.io.File;
 import javax.swing.JFileChooser;
-
 /**
  *
  * @author Davi Henrique
@@ -20,7 +19,7 @@ public class Janela extends javax.swing.JFrame {
     public Janela() {
         initComponents();
     }
-
+    
     String diretorio;
 
     /**
@@ -44,6 +43,7 @@ public class Janela extends javax.swing.JFrame {
         jSpinnerTemporada = new javax.swing.JSpinner();
         jLabel1 = new javax.swing.JLabel();
         jButtonRenomear = new javax.swing.JButton();
+        jButtonEpisodios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +89,13 @@ public class Janela extends javax.swing.JFrame {
             }
         });
 
+        jButtonEpisodios.setText("Episodios");
+        jButtonEpisodios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEpisodiosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,7 +126,10 @@ public class Janela extends javax.swing.JFrame {
                                     .addComponent(jSpinnerTemporada))
                                 .addGap(39, 39, 39)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldNomeSeriado, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextFieldNomeSeriado, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButtonEpisodios))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabelNomeSeriado)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -145,8 +155,9 @@ public class Janela extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldNomeSeriado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinnerTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                    .addComponent(jSpinnerTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonEpisodios))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSair)
                     .addComponent(jButtonRenomear))
@@ -158,7 +169,7 @@ public class Janela extends javax.swing.JFrame {
 
     private void jButtonSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarActionPerformed
         // TODO add your handling code here:
-
+        int numerodeepisodio;
         diretorio = "";
         jTextFieldEndereco.setText("");
         jLabelMsg.setText("");
@@ -175,15 +186,16 @@ public class Janela extends javax.swing.JFrame {
             jTextFieldEndereco.setText(diretorio);
 
             Renomear x = new Renomear();
-
-            jLabelMsg.setText(x.info(diretorio) + " episodios encontrado");
+            numerodeepisodio = x.info(diretorio);
+            if(numerodeepisodio > 1){
+               jLabelMsg.setText(numerodeepisodio + " Episodios Encontrados");
+            }else{
+                jLabelMsg.setText("Apenas "+numerodeepisodio + " Encontrado");
+            }
 
         } catch (NullPointerException e) {
             jLabelMsg.setText("Diretorio vazio");
-
         }
-
-
     }//GEN-LAST:event_jButtonSelecionarActionPerformed
 
     private void jTextFieldEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEnderecoActionPerformed
@@ -192,52 +204,27 @@ public class Janela extends javax.swing.JFrame {
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
         // TODO add your handling code here:
-
         System.exit(0);
     }//GEN-LAST:event_jButtonSairActionPerformed
 
     private void jButtonRenomearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRenomearActionPerformed
         // TODO add your handling code here:
-       
+       diretorio = jTextFieldEndereco.getText();
         Renomear x = new Renomear();
-        x.RenomearArquivos(diretorio, (int) jSpinnerTemporada.getValue(), jTextFieldNomeSeriado.getText());
-        
-        
-        
-        /*  diretorio = jTextFieldEndereco.getText();
-        
-        System.out.println(diretorio);
-        if("".equals(diretorio)){
-            
-            System.out.println("esta vazio");
-            jLabelMsg.setText("Diretorio Vazio");
-        
-        }else {
-            System.out.println("não esta vazio");
-         
-          try{
-                File pasta = new File(diretorio);
-              File arquivos[] = pasta.listFiles();
-              
-               for(int i=0; i < arquivos.length; i++) {
-                   System.out.println(arquivos[i]);
-               }
-                
-            }catch(NullPointerException e){
-                
-                jLabelMsg.setText("Diretorio Incorreto");
-            }
-           
-        }*/
-
+        if(x.RenomearArquivos(diretorio, (int) jSpinnerTemporada.getValue(), jTextFieldNomeSeriado.getText())){
+            jLabelMsg.setText("Remeado");
+        }else{
+             jLabelMsg.setText("Diretorio Incorreto");
+        }
     }//GEN-LAST:event_jButtonRenomearActionPerformed
 
     private void jTextFieldEnderecoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldEnderecoMouseExited
         // TODO add your handling code here:
-        diretorio = jTextFieldEndereco.getText();
-        
-        System.out.println(diretorio);
     }//GEN-LAST:event_jTextFieldEnderecoMouseExited
+
+    private void jButtonEpisodiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEpisodiosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEpisodiosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,6 +262,7 @@ public class Janela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonEpisodios;
     private javax.swing.JButton jButtonRenomear;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JButton jButtonSelecionar;

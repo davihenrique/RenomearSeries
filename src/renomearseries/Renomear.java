@@ -18,8 +18,7 @@ public class Renomear {
     String nome;
     boolean conveter = false;
     String endereco;
-    int temporada;
-    int ep = 1;
+    String temporada;
 
     int totalep = 0;
 
@@ -56,34 +55,25 @@ public class Renomear {
                 try {
                     result = String.valueOf(arquivos[i]).indexOf(formatos[j]);
                     if (result != -1 && result + format == String.valueOf(arquivos[i]).length()) {
-                        //Impressão dos arquivos
-                        //System.out.println(arquivos[i]);
-
+                        totalep++;
                         if (conveter == true) {
-                            System.out.println(arquivos[i]);
-
-                            if (ep > 9) {
-                                File novo = new File(endereco + "\\S0" + (temporada) + "E" + (ep) + " " + nome + formatos[j]);
+                            /*Nomes Dos aquivos
+                            System.out.println(arquivos[i]);*/
+                            if (totalep > 9) {
+                                File novo = new File(endereco + "\\S" + temporada + "E" + (totalep) + " " + nome + formatos[j]);
                                 arquivos[i].renameTo(novo);
                             } else {
-                                File novo = new File(endereco + "\\S0" + (temporada) + "E0" + (ep) + " " + nome + formatos[j]);
+                                File novo = new File(endereco + "\\S" + temporada + "E0" + (totalep) + " " + nome + formatos[j]);
                                 arquivos[i].renameTo(novo);
                             }
 
-                            ep++;
                         }
-
-                        totalep++;
                     }
-
                 } catch (Exception e) {
                     // System.out.println(e);
                 }
-
             }
-
         }
-
     }
 
     public int info(String endereco) {
@@ -95,21 +85,25 @@ public class Renomear {
         return (totalep);
     }
 
-    public void RenomearArquivos(String endereco, int temporada, String nome) {
-
-        //System.out.println(endereco);
-        //System.out.println(temporada);
-        //System.out.println(nome);
+    public boolean RenomearArquivos(String endereco, int temporada, String nome) {
+       
         this.endereco = endereco;
-        this.temporada = temporada;
         this.nome = nome;
-
+        if(temporada >9){
+            this.temporada = ""+temporada;
+        }else{
+            this.temporada = "0"+temporada;
+        }
         conveter = true;
-        totalep = 0;
-
         File pasta = new File(endereco);
-
+        
+        try{
         pesquisa(pasta);
+        return true;
+        }catch(NullPointerException e){
+           // System.out.println(e);
+           return false;
+        }
 
     }
 
