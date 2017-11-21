@@ -25,16 +25,16 @@ public class Renomear {
 
     String[] formatos = new String[5];
 
+    /*Lista de formatos suportados*/
     public void listaformatos() {
-
         formatos[0] = ".mp4";
         formatos[1] = ".rmvb";
         formatos[2] = ".avi";
         formatos[3] = ".mkv";
         formatos[4] = ".mov";
-
     }
 
+    
     public void pesquisa(File pasta) {
         int result = 0;
         int format;
@@ -74,7 +74,6 @@ public class Renomear {
                         }
                     }
                 } catch (Exception e) {
-                    // System.out.println(e);
                 }
             }
         }
@@ -107,7 +106,6 @@ public class Renomear {
         pesquisa(pasta);
         return true;
         }catch(NullPointerException e){
-           // System.out.println(e);
            return false;
         }
 
