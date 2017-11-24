@@ -1,4 +1,4 @@
-<h1>Renomear Séries<h1>
+﻿<h1>Renomear Séries<h1>
 
 <h2>Programa com o objetivo de renomear séries, elaborado para facilitar renomear arquivos de forma organizada.</h2>
 
@@ -11,7 +11,7 @@ Sobre o programa:
 Para executar:
 <ul>
 <li>O executável do programa é um (.jar), para executar é necessário ter o Java instalado em seu computador https://www.java.com/pt_BR/download/</li>
-<li>Caso queira apenas executar o programa sem fazer modificações no código, baixe apenas o arquivo: “RenomearSeries.jar”.</li>
+<li>Caso queira apenas executar o programa sem fazer modificações no código, baixe apenas o arquivo: “RenomearSeries.jar” https://github.com/davihenrique/RenomearSeries/blob/master/dist/RenomearSeries.jar .</li>
 </ul>
 
 

@@ -250,7 +250,6 @@ public class Janela extends javax.swing.JFrame {
 
     private void jButtonSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarActionPerformed
         // TODO add your handling code here:
-        
         diretorio = "";
         jTextFieldEndereco.setText("");
         jLabelMsg.setText("");
@@ -267,7 +266,8 @@ public class Janela extends javax.swing.JFrame {
             jTextFieldEndereco.setText(diretorio);
 
             Renomear x = new Renomear();
-            numerodeepisodio = x.info(diretorio);
+            x.NumeroEp(diretorio);
+            numerodeepisodio = x.getTotal_de_epsodio();
             if(numerodeepisodio > 1){
                jLabelMsg.setText(numerodeepisodio + " Episodios Encontrados");
             }else{
@@ -290,15 +290,14 @@ public class Janela extends javax.swing.JFrame {
 
     private void jButtonRenomearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRenomearActionPerformed
         // TODO add your handling code here:
-       
-         
-        
        diretorio = jTextFieldEndereco.getText();
         Renomear x = new Renomear();
-        if(x.RenomearArquivos(diretorio, (int) jSpinnerTemporada.getValue(), jTextFieldNomeSeriado.getText(),arquivos)){
+
+        try{
+            x.RenomaEp(diretorio, (int) jSpinnerTemporada.getValue(), jTextFieldNomeSeriado.getText(),arquivos);
             jLabelMsg.setText("Remeado");
-        }else{
-             jLabelMsg.setText("Diretorio Incorreto");
+        } catch (Exception e) {
+           jLabelMsg.setText("Diretorio Incorreto");
         }
     }//GEN-LAST:event_jButtonRenomearActionPerformed
 
@@ -325,7 +324,9 @@ public class Janela extends javax.swing.JFrame {
         try {
 
             Renomear x = new Renomear();
-            numerodeepisodio = x.info(diretorio);
+           
+            x.NumeroEp(diretorio);
+            numerodeepisodio = x.total_de_epsodio;
             if(numerodeepisodio > 1){
                jLabelMsg.setText(numerodeepisodio + " Episodios Encontrados");
             }else{
@@ -347,8 +348,6 @@ public class Janela extends javax.swing.JFrame {
             val.addRow(new String[]{Integer.toString(i), ""});
             
              }
-             
-             //jTabela.getColumnModel().get(Episódio).setEditable(true);
         }
          
          
@@ -362,20 +361,10 @@ public class Janela extends javax.swing.JFrame {
          jPanelPrincipal.setVisible(true);
         jPanelLista.setVisible(false);
         
-        
-        for (int i = 0; i < numerodeepisodio; i++) {
-            
-            
-           
-           
+        for (int i = 0; i < numerodeepisodio; i++) { 
          Object value = jTabela.getValueAt(i, 1);
-         
-          
           arquivos[i] = (String) value;
-          //System.out.println(arquivos[i]);
-     
-        }
-        
+        }    
     }//GEN-LAST:event_jButtonConcluirActionPerformed
 
     /**

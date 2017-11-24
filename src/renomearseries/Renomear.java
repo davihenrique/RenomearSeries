@@ -6,27 +6,17 @@
 package renomearseries;
 
 import java.io.File;
-import java.util.Arrays;
 
 /**
  *
  * @author Davi Henrique
  */
 public class Renomear {
-
-    String[] arquivos = new String[99];
-    String[] nomedoseps = new String[99];
-    String nome;
-    boolean conveter = false;
-    String endereco;
-    String temporada;
-
-    int totalep = 0;
-
+    int total_de_epsodio = 0;
     String[] formatos = new String[5];
 
     /*Lista de formatos suportados*/
-    public void listaformatos() {
+    private void Listaformatos() {
         formatos[0] = ".mp4";
         formatos[1] = ".rmvb";
         formatos[2] = ".avi";
@@ -34,44 +24,34 @@ public class Renomear {
         formatos[4] = ".mov";
     }
 
-    
-    public void pesquisa(File pasta) {
+    /*Pegar Aquivos*/
+    private File[] Ligar(String endereco) {
+        File diretorio = new File(endereco);
+        return diretorio.listFiles();
+    }
+
+    /*Metodo para volta numero de Epsodios*/
+    public void NumeroEp(String endereco) {
+        /*Recebe aquivos*/
+        File arquivos[] = Ligar(endereco);
+        //carregar listas de formatos
+        Listaformatos();
         int result = 0;
         int format;
-        File arquivos[] = pasta.listFiles();
-
-        Arrays.sort(arquivos);
-
-        listaformatos();
         for (int i = 0; i < arquivos.length; i++) {
 
             for (int j = 0; j < formatos.length; j++) {
-
+                /*Veria se a estão do arquivo possuir 5 ou 4 caracteres*/
                 if (j == 1) {
                     format = 5;
                 } else {
                     format = 4;
                 }
-
                 try {
                     result = String.valueOf(arquivos[i]).indexOf(formatos[j]);
                     if (result != -1 && result + format == String.valueOf(arquivos[i]).length()) {
-                        totalep++;
-                        if (conveter == true) {
-                            /*Nomes Dos aquivos
-                            System.out.println(arquivos[i]);*/
-                            if (totalep > 9) {
-                                File novo = new File(endereco + "\\S" + temporada + "E" + (totalep) + " " + nome +" - "+nomedoseps[totalep-1]+ formatos[j]);
-                                arquivos[i].renameTo(novo);
-                            } else {
-                                File novo = new File(endereco + "\\S" + temporada + "E0" + (totalep) + " " + nome +" - "+nomedoseps[totalep-1]+ formatos[j]);
-                                arquivos[i].renameTo(novo);
-                            }
-                            
-                            
-                         //  System.out.println(nomedoseps[totalep]);
-
-                        }
+                        /*Contador de aquivos*/
+                        total_de_epsodio++;
                     }
                 } catch (Exception e) {
                 }
@@ -79,37 +59,54 @@ public class Renomear {
         }
     }
 
-    public int info(String endereco) {
-
-        File pasta = new File(endereco);
-
-        pesquisa(pasta);
-
-        return (totalep);
-    }
-
-    public boolean RenomearArquivos(String endereco, int temporada, String nome, String[] arquivos) {
-       
-        this.nomedoseps = arquivos;
+    /*Realizar Alteraçoes*/
+    public void RenomaEp(String endereco, int temporada, String nome, String[] nomesEP) {
+        /*Recebe aquivos*/
+        File arquivos[] = Ligar(endereco);
+        /*carregar listas de formatos*/
+        Listaformatos();
+        File novo;
+        int result = 0;
+        int format;
+        String sistema;
         
-        this.endereco = endereco;
-        this.nome = nome;
-        if(temporada >9){
-            this.temporada = ""+temporada;
-        }else{
-            this.temporada = "0"+temporada;
-        }
-        conveter = true;
-        File pasta = new File(endereco);
-        
-        try{
-        pesquisa(pasta);
-        return true;
-        }catch(NullPointerException e){
-           return false;
+        /*Verifica sistema*/
+        if ("Linux".equals(System.getProperty("os.name"))) {
+            sistema = "/S";
+        } else {
+           sistema = "\\S";
         }
 
-    }
+        for (int i = 0; i < arquivos.length; i++) {
 
+            for (int j = 0; j < formatos.length; j++) {
+                /*Veria se a estão do arquivo possuir 5 ou 4 caracteres*/
+                if (j == 1) {
+                    format = 5;
+                } else {
+                    format = 4;
+                }
+                try {
+                    result = String.valueOf(arquivos[i]).indexOf(formatos[j]);
+                    if (result != -1 && result + format == String.valueOf(arquivos[i]).length()) {
+                        /*Contador de aquivos*/
+                        total_de_epsodio++;
+                        if (total_de_epsodio > 9) {
+                            novo = new File(endereco + sistema + temporada + "E" + (total_de_epsodio) + " " + nome + " - " + nomesEP[total_de_epsodio - 1] + formatos[j]);
+                        } else {
+                            novo = new File(endereco + sistema + temporada + "E0" + (total_de_epsodio) + " " + nome + " - " + nomesEP[total_de_epsodio - 1] + formatos[j]);
+                        }
+                        arquivos[i].renameTo(novo);
+                    }
+                } catch (Exception e) {
+                }
+            }
+        }
+    }
+    
+     /*Get para episódio*/
+    public int getTotal_de_epsodio() {
+        return total_de_epsodio;
+    }
 
 }
