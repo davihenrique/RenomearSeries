@@ -5,9 +5,12 @@
  */
 package renomearseries;
 
+import java.awt.Color;
+import series.Series;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Davi Henrique
@@ -20,12 +23,13 @@ public class Janela extends javax.swing.JFrame {
     public Janela() {
         initComponents();
         jPanelLista.setVisible(false);
-        
+
     }
-    
+
     String diretorio;
     int numerodeepisodio = 0;
     String[] arquivos = new String[99];
+    int pradao = 1;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,7 +41,7 @@ public class Janela extends javax.swing.JFrame {
     private void initComponents() {
 
         jFileChooser1 = new javax.swing.JFileChooser();
-        jPanelPrincipal = new javax.swing.JPanel();
+        jPanelSerie = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButtonRenomear = new javax.swing.JButton();
         jButtonEpisodios = new javax.swing.JButton();
@@ -50,6 +54,7 @@ public class Janela extends javax.swing.JFrame {
         jLabelTemporada = new javax.swing.JLabel();
         jLabelNomeSeriado = new javax.swing.JLabel();
         jSpinnerTemporada = new javax.swing.JSpinner();
+        jComboBoxPadrao = new javax.swing.JComboBox<>();
         jPanelLista = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTabela = new javax.swing.JTable();
@@ -57,6 +62,8 @@ public class Janela extends javax.swing.JFrame {
         jLabelNomeEpisodios = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Renomear Seiries");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
         getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
 
@@ -109,77 +116,87 @@ public class Janela extends javax.swing.JFrame {
 
         jSpinnerTemporada.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
 
-        javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
-        jPanelPrincipal.setLayout(jPanelPrincipalLayout);
-        jPanelPrincipalLayout.setHorizontalGroup(
-            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                        .addComponent(jLabelDiretorio)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabelTemporada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jSpinnerTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(39, 39, 39)
-                                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldNomeSeriado, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabelNomeSeriado)))
-                                    .addComponent(jTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButtonSelecionar)
-                                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jButtonEpisodios))
-                                    .addComponent(jLabel1))))
-                        .addGap(0, 51, Short.MAX_VALUE))
-                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                        .addComponent(jButtonRenomear)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonSair)
-                        .addGap(63, 63, 63))))
+        jComboBoxPadrao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SnEm Nome Seriado - Nome Episódio", "Nome Seriado SnEm Nome Episódio", "SnEm - Nome Episódio", "Nome Seriado Sn-Em" }));
+        jComboBoxPadrao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxPadraoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelSerieLayout = new javax.swing.GroupLayout(jPanelSerie);
+        jPanelSerie.setLayout(jPanelSerieLayout);
+        jPanelSerieLayout.setHorizontalGroup(
+            jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSerieLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelDiretorio)
+                    .addComponent(jComboBoxPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelSerieLayout.createSequentialGroup()
+                        .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelTemporada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSpinnerTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(217, 217, 217)
+                        .addComponent(jButtonSelecionar))
+                    .addGroup(jPanelSerieLayout.createSequentialGroup()
+                        .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelSerieLayout.createSequentialGroup()
+                                .addComponent(jButtonRenomear)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSerieLayout.createSequentialGroup()
+                                .addGap(0, 129, Short.MAX_VALUE)
+                                .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldNomeSeriado, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelNomeSeriado))
+                                .addGap(49, 49, 49)))
+                        .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanelSerieLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jButtonEpisodios))
+                            .addComponent(jButtonSair, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
-        jPanelPrincipalLayout.setVerticalGroup(
-            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
+        jPanelSerieLayout.setVerticalGroup(
+            jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSerieLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addComponent(jLabelDiretorio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSelecionar))
-                .addGap(5, 5, 5)
-                .addComponent(jLabelMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelSerieLayout.createSequentialGroup()
+                        .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonSelecionar)
+                            .addComponent(jTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabelMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelTemporada)
-                            .addComponent(jLabelNomeSeriado)
-                            .addComponent(jLabel1))
+                        .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelSerieLayout.createSequentialGroup()
+                                .addComponent(jLabelTemporada)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSpinnerTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelSerieLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonEpisodios)
+                                .addGap(2, 2, 2))))
+                    .addGroup(jPanelSerieLayout.createSequentialGroup()
+                        .addComponent(jLabelNomeSeriado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldNomeSeriado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinnerTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonEpisodios))
-                        .addGap(28, 251, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrincipalLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonSair)
-                            .addComponent(jButtonRenomear))
-                        .addGap(39, 39, 39))))
+                        .addComponent(jTextFieldNomeSeriado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36)
+                .addComponent(jComboBoxPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonRenomear)
+                    .addComponent(jButtonSair))
+                .addGap(48, 48, 48))
         );
 
-        getContentPane().add(jPanelPrincipal);
+        getContentPane().add(jPanelSerie);
 
         jTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -246,6 +263,7 @@ public class Janela extends javax.swing.JFrame {
         getContentPane().add(jPanelLista);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarActionPerformed
@@ -265,16 +283,22 @@ public class Janela extends javax.swing.JFrame {
             diretorio = f.getAbsolutePath();
             jTextFieldEndereco.setText(diretorio);
 
-            Renomear x = new Renomear();
+            Series x = new Series();
             x.NumeroEp(diretorio);
             numerodeepisodio = x.getTotal_de_epsodio();
-            if(numerodeepisodio > 1){
-               jLabelMsg.setText(numerodeepisodio + " Episodios Encontrados");
-            }else{
-                jLabelMsg.setText("Apenas "+numerodeepisodio + " Encontrado");
+            if (numerodeepisodio > 1) {
+                jLabelMsg.setForeground(Color.black);
+                jLabelMsg.setText(numerodeepisodio + " Episodios Encontrados");
+            } else if (numerodeepisodio == 1) {
+                jLabelMsg.setForeground(Color.black);
+                jLabelMsg.setText("Apenas " + numerodeepisodio + " Encontrado");
+            } else {
+                jLabelMsg.setForeground(Color.red);
+                jLabelMsg.setText("Nenhum Episodio Encontrado");
             }
 
         } catch (NullPointerException e) {
+            jLabelMsg.setForeground(Color.red);
             jLabelMsg.setText("Diretorio vazio");
         }
     }//GEN-LAST:event_jButtonSelecionarActionPerformed
@@ -290,14 +314,16 @@ public class Janela extends javax.swing.JFrame {
 
     private void jButtonRenomearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRenomearActionPerformed
         // TODO add your handling code here:
-       diretorio = jTextFieldEndereco.getText();
-        Renomear x = new Renomear();
+        diretorio = jTextFieldEndereco.getText();
+        Series x = new Series();
 
-        try{
-            x.RenomaEp(diretorio, (int) jSpinnerTemporada.getValue(), jTextFieldNomeSeriado.getText(),arquivos);
+        try {
+            x.RenomaEp(diretorio, (int) jSpinnerTemporada.getValue(), jTextFieldNomeSeriado.getText(), arquivos, pradao);
+            jLabelMsg.setForeground(Color.green);
             jLabelMsg.setText("Remeado");
         } catch (Exception e) {
-           jLabelMsg.setText("Diretorio Incorreto");
+            jLabelMsg.setForeground(Color.red);
+            jLabelMsg.setText("Diretorio Incorreto");
         }
     }//GEN-LAST:event_jButtonRenomearActionPerformed
 
@@ -307,65 +333,69 @@ public class Janela extends javax.swing.JFrame {
 
     private void jButtonEpisodiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEpisodiosActionPerformed
         // TODO add your handling code here:
-         
-        jPanelPrincipal.setVisible(false);
+
+        jPanelSerie.setVisible(false);
         jPanelLista.setVisible(true);
-        
-        
+
         diretorio = "";
         jLabelMsg.setText("");
-        
+
         diretorio = jTextFieldEndereco.getText();
-        
-        while (jTabela.getModel().getRowCount() > 0){
-             DefaultTableModel val = (DefaultTableModel) jTabela.getModel();
+
+        while (jTabela.getModel().getRowCount() > 0) {
+            DefaultTableModel val = (DefaultTableModel) jTabela.getModel();
             val.removeRow(0);
-        }   
+        }
         try {
 
-            Renomear x = new Renomear();
-           
+            Series x = new Series();
+
             x.NumeroEp(diretorio);
-            numerodeepisodio = x.total_de_epsodio;
-            if(numerodeepisodio > 1){
-               jLabelMsg.setText(numerodeepisodio + " Episodios Encontrados");
-            }else{
-                jLabelMsg.setText("Apenas "+numerodeepisodio + " Encontrado");
+            numerodeepisodio = x.getTotal_de_epsodio();
+            if (numerodeepisodio > 1) {
+                jLabelMsg.setForeground(Color.black);
+                jLabelMsg.setText(numerodeepisodio + " Episodios Encontrados");
+            } else {
+                jLabelMsg.setForeground(Color.black);
+                jLabelMsg.setText("Apenas " + numerodeepisodio + " Encontrado");
             }
 
         } catch (NullPointerException e) {
+            jLabelMsg.setForeground(Color.red);
             jLabelMsg.setText("Diretorio vazio");
         }
-        
-        
-        
-         DefaultTableModel val = (DefaultTableModel) jTabela.getModel();
-         for (int i = 1; i <= numerodeepisodio; i++) {
-             
-             if(i <10){
-                 val.addRow(new String[]{"0"+i, ""});
-             }else{
-            val.addRow(new String[]{Integer.toString(i), ""});
-            
-             }
+
+        DefaultTableModel val = (DefaultTableModel) jTabela.getModel();
+        for (int i = 1; i <= numerodeepisodio; i++) {
+
+            if (i < 10) {
+                val.addRow(new String[]{"0" + i, ""});
+            } else {
+                val.addRow(new String[]{Integer.toString(i), ""});
+
+            }
         }
-         
-         
-        
-        
+
+
     }//GEN-LAST:event_jButtonEpisodiosActionPerformed
 
     private void jButtonConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConcluirActionPerformed
         // TODO add your handling code here:
         //jTabela.setEnabled(false);
-         jPanelPrincipal.setVisible(true);
+        jPanelSerie.setVisible(true);
         jPanelLista.setVisible(false);
-        
-        for (int i = 0; i < numerodeepisodio; i++) { 
-         Object value = jTabela.getValueAt(i, 1);
-          arquivos[i] = (String) value;
-        }    
+
+        for (int i = 0; i < numerodeepisodio; i++) {
+            Object value = jTabela.getValueAt(i, 1);
+            arquivos[i] = (String) value;
+        }
     }//GEN-LAST:event_jButtonConcluirActionPerformed
+
+    private void jComboBoxPadraoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPadraoActionPerformed
+        // TODO add your handling code here:
+        pradao = jComboBoxPadrao.getSelectedIndex() + 1;
+
+    }//GEN-LAST:event_jComboBoxPadraoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -408,6 +438,7 @@ public class Janela extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRenomear;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JButton jButtonSelecionar;
+    private javax.swing.JComboBox<String> jComboBoxPadrao;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelDiretorio;
@@ -416,7 +447,7 @@ public class Janela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNomeSeriado;
     private javax.swing.JLabel jLabelTemporada;
     private javax.swing.JPanel jPanelLista;
-    private javax.swing.JPanel jPanelPrincipal;
+    private javax.swing.JPanel jPanelSerie;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinnerTemporada;
     private javax.swing.JTable jTabela;
