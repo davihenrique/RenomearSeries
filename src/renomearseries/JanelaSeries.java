@@ -15,12 +15,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Davi Henrique
  */
-public class Janela extends javax.swing.JFrame {
+public class JanelaSeries extends javax.swing.JFrame {
 
     /**
      * Creates new form Janela
      */
-    public Janela() {
+    public JanelaSeries() {
         initComponents();
         jPanelLista.setVisible(false);
 
@@ -42,13 +42,13 @@ public class Janela extends javax.swing.JFrame {
 
         jFileChooser1 = new javax.swing.JFileChooser();
         jPanelSerie = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelNomesEpisodios = new javax.swing.JLabel();
         jButtonRenomear = new javax.swing.JButton();
         jButtonEpisodios = new javax.swing.JButton();
         jButtonSelecionar = new javax.swing.JButton();
         jTextFieldEndereco = new javax.swing.JTextField();
         jLabelMsg = new javax.swing.JLabel();
-        jButtonSair = new javax.swing.JButton();
+        jButtonVoltar = new javax.swing.JButton();
         jLabelDiretorio = new javax.swing.JLabel();
         jTextFieldNomeSeriado = new javax.swing.JTextField();
         jLabelTemporada = new javax.swing.JLabel();
@@ -67,7 +67,7 @@ public class Janela extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
 
-        jLabel1.setText("Nomes Episodios:");
+        jLabelNomesEpisodios.setText("Nomes Episodios:");
 
         jButtonRenomear.setText("Renomear");
         jButtonRenomear.addActionListener(new java.awt.event.ActionListener() {
@@ -101,10 +101,10 @@ public class Janela extends javax.swing.JFrame {
             }
         });
 
-        jButtonSair.setText("Sair");
-        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSairActionPerformed(evt);
+                jButtonVoltarActionPerformed(evt);
             }
         });
 
@@ -130,33 +130,36 @@ public class Janela extends javax.swing.JFrame {
             .addGroup(jPanelSerieLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelDiretorio)
-                    .addComponent(jComboBoxPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelSerieLayout.createSequentialGroup()
-                        .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelTemporada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSpinnerTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(217, 217, 217)
-                        .addComponent(jButtonSelecionar))
                     .addGroup(jPanelSerieLayout.createSequentialGroup()
                         .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelDiretorio)
+                            .addComponent(jComboBoxPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelSerieLayout.createSequentialGroup()
-                                .addComponent(jButtonRenomear)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSerieLayout.createSequentialGroup()
-                                .addGap(0, 129, Short.MAX_VALUE)
+                                .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabelTemporada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jSpinnerTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(217, 217, 217)
+                                .addComponent(jButtonSelecionar)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSerieLayout.createSequentialGroup()
+                        .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelSerieLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldNomeSeriado, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabelNomeSeriado))
-                                .addGap(49, 49, 49)))
+                                .addGap(49, 49, 49))
+                            .addGroup(jPanelSerieLayout.createSequentialGroup()
+                                .addComponent(jButtonVoltar)
+                                .addGap(223, 223, 223)))
                         .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(jButtonRenomear)
+                            .addComponent(jLabelNomesEpisodios)
                             .addGroup(jPanelSerieLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(jButtonEpisodios))
-                            .addComponent(jButtonSair, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                .addComponent(jButtonEpisodios)))))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanelSerieLayout.setVerticalGroup(
@@ -179,7 +182,7 @@ public class Janela extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSpinnerTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelSerieLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(jLabelNomesEpisodios)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonEpisodios)
                                 .addGap(2, 2, 2))))
@@ -189,11 +192,11 @@ public class Janela extends javax.swing.JFrame {
                         .addComponent(jTextFieldNomeSeriado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(36, 36, 36)
                 .addComponent(jComboBoxPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
                 .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonRenomear)
-                    .addComponent(jButtonSair))
-                .addGap(48, 48, 48))
+                    .addComponent(jButtonVoltar)
+                    .addComponent(jButtonRenomear))
+                .addGap(41, 41, 41))
         );
 
         getContentPane().add(jPanelSerie);
@@ -307,10 +310,11 @@ public class Janela extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldEnderecoActionPerformed
 
-    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jButtonSairActionPerformed
+       new JanelaInicial().setVisible(true);
+       dispose();
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void jButtonRenomearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRenomearActionPerformed
         // TODO add your handling code here:
@@ -393,7 +397,32 @@ public class Janela extends javax.swing.JFrame {
 
     private void jComboBoxPadraoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPadraoActionPerformed
         // TODO add your handling code here:
-        pradao = jComboBoxPadrao.getSelectedIndex() + 1;
+         switch (jComboBoxPadrao.getSelectedIndex()){
+            case 0:
+                jButtonEpisodios.setVisible(true);
+                jLabelNomesEpisodios.setVisible(true);
+                pradao = jComboBoxPadrao.getSelectedIndex() + 1;
+                break;
+            case 1:
+                jButtonEpisodios.setVisible(true);
+                jLabelNomesEpisodios.setVisible(true);
+                pradao = jComboBoxPadrao.getSelectedIndex() + 1;
+                break;
+                
+            case 2:
+                jButtonEpisodios.setVisible(true);
+                jLabelNomesEpisodios.setVisible(true);
+                pradao = jComboBoxPadrao.getSelectedIndex() + 1;
+                break;
+                
+            case 3:
+                jButtonEpisodios.setVisible(false);
+                jLabelNomesEpisodios.setVisible(false);
+                pradao = jComboBoxPadrao.getSelectedIndex() + 1;
+                break;
+            
+       
+        } 
 
     }//GEN-LAST:event_jComboBoxPadraoActionPerformed
 
@@ -414,20 +443,21 @@ public class Janela extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Janela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaSeries.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Janela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaSeries.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Janela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaSeries.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Janela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanelaSeries.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Janela().setVisible(true);
+                new JanelaSeries().setVisible(true);
             }
         });
     }
@@ -436,15 +466,15 @@ public class Janela extends javax.swing.JFrame {
     private javax.swing.JButton jButtonConcluir;
     private javax.swing.JButton jButtonEpisodios;
     private javax.swing.JButton jButtonRenomear;
-    private javax.swing.JButton jButtonSair;
     private javax.swing.JButton jButtonSelecionar;
+    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JComboBox<String> jComboBoxPadrao;
     private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelDiretorio;
     private javax.swing.JLabel jLabelMsg;
     private javax.swing.JLabel jLabelNomeEpisodios;
     private javax.swing.JLabel jLabelNomeSeriado;
+    private javax.swing.JLabel jLabelNomesEpisodios;
     private javax.swing.JLabel jLabelTemporada;
     private javax.swing.JPanel jPanelLista;
     private javax.swing.JPanel jPanelSerie;

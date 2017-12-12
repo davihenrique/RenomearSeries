@@ -35,43 +35,48 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelMsg" min="-2" pref="181" max="-2" attributes="0"/>
-                      <Component id="jTextFieldEndereco" min="-2" pref="242" max="-2" attributes="0"/>
-                      <Component id="jLabelDiretorio" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBoxPadrao" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabelTemporada" max="32767" attributes="0"/>
-                              <Component id="jSpinnerTemporada" min="-2" pref="58" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
-                          <Component id="jButtonSelecionar" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jButtonRenomear" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jLabelMsg" min="-2" pref="181" max="-2" attributes="0"/>
+                              <Component id="jTextFieldEndereco" min="-2" pref="242" max="-2" attributes="0"/>
+                              <Component id="jLabelDiretorio" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxPadrao" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabelTemporada" max="32767" attributes="0"/>
+                                      <Component id="jSpinnerTemporada" min="-2" pref="58" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
+                                  <Component id="jButtonSelecionar" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="129" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jTextFieldNomeSeriado" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
                                       <Component id="jLabelNomeSeriado" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jButtonVoltar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonRenomear" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelNomesEpisodios" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                   <Component id="jButtonEpisodios" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jButtonSair" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -101,7 +106,7 @@
                                   <Component id="jSpinnerTemporada" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNomesEpisodios" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButtonEpisodios" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
@@ -116,18 +121,18 @@
                   </Group>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="jComboBoxPadrao" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="164" max="32767" attributes="0"/>
+                  <EmptySpace pref="171" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonRenomear" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonSair" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="jLabelNomesEpisodios">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nomes Episodios:"/>
           </Properties>
@@ -164,12 +169,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelMsg">
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonSair">
+        <Component class="javax.swing.JButton" name="jButtonVoltar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sair"/>
+            <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSairActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVoltarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelDiretorio">
