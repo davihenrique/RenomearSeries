@@ -54,6 +54,11 @@ public class JanelaInicial extends javax.swing.JFrame {
         });
 
         jButton3.setText("Musicas");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,7 +76,7 @@ public class JanelaInicial extends javax.swing.JFrame {
                         .addComponent(jButton3)
                         .addGap(68, 68, 68))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
+                .addGap(160, 160, 160)
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -103,6 +108,12 @@ public class JanelaInicial extends javax.swing.JFrame {
         new JanelaSeries().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        new JanelaMusicas().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

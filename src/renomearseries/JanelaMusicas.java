@@ -5,6 +5,11 @@
  */
 package renomearseries;
 
+import java.awt.Color;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.table.DefaultTableModel;
+import musicas.Musicas;
 /**
  *
  * @author Davi Henrique
@@ -17,6 +22,10 @@ public class JanelaMusicas extends javax.swing.JFrame {
     public JanelaMusicas() {
         initComponents();
     }
+    
+    String diretorio;
+    int numerodemusicas = 0;
+    String[] arquivos = new String[99];
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,116 +36,127 @@ public class JanelaMusicas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        jLabelDiretorio = new javax.swing.JLabel();
+        jTextFieldEndereco = new javax.swing.JTextField();
+        jButtonSelecionar = new javax.swing.JButton();
+        jButtonMusicas = new javax.swing.JButton();
+        jButtonRenomear = new javax.swing.JButton();
+        jButtonVoltar = new javax.swing.JButton();
+        jLabelNomeMusicas = new javax.swing.JLabel();
+        jLabelSubtitle = new javax.swing.JLabel();
+        jLabelComentarios = new javax.swing.JLabel();
+        jLabelArtista = new javax.swing.JLabel();
+        jLabelArtistaDoAlbum = new javax.swing.JLabel();
+        jLabelAlbum = new javax.swing.JLabel();
+        jLabelAno = new javax.swing.JLabel();
+        jLabelGenero = new javax.swing.JLabel();
+        jButtonTags = new javax.swing.JButton();
+        jRadioButtonOrdemNumerica = new javax.swing.JRadioButton();
+        jRadioButtonConfirma = new javax.swing.JRadioButton();
+        jTextFieldComentarios = new javax.swing.JTextField();
+        jTextFieldSubtitle = new javax.swing.JTextField();
+        jTextFieldArtista = new javax.swing.JTextField();
+        jTextFieldAlbum = new javax.swing.JTextField();
+        jTextFieldAristaDoAlbum = new javax.swing.JTextField();
+        jTextFieldGenero = new javax.swing.JTextField();
+        jTextFieldAno = new javax.swing.JTextField();
+        jLabelOrdemNumerica = new javax.swing.JLabel();
+        jLabelConfirma = new javax.swing.JLabel();
+        jButtonConcluirTag = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton7 = new javax.swing.JButton();
+        jTabela = new javax.swing.JTable();
+        jButtonConcluirTabela = new javax.swing.JButton();
+        jLabelMsg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Renomear Músicas");
 
-        jLabel1.setText("Diretorio");
+        jLabelDiretorio.setText("Diretorio");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldEnderecoActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Selecionar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSelecionar.setText("Selecionar");
+        jButtonSelecionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonSelecionarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Musicas");
-
-        jButton3.setText("Renomear");
-
-        jButton4.setText("Voltar");
-
-        jLabel2.setText("Nome Musicas:");
-
-        jLabel3.setText("Subtitle:");
-
-        jLabel4.setText("Comentarios:");
-
-        jLabel5.setText("Artista");
-
-        jLabel6.setText("Artista do album");
-
-        jLabel7.setText("Album");
-
-        jLabel8.setText("Ano");
-
-        jLabel9.setText("Genero:");
-
-        jButton5.setText("Tags");
-
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMusicas.setText("Musicas");
+        jButtonMusicas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                jButtonMusicasActionPerformed(evt);
             }
         });
 
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRenomear.setText("Renomear");
+
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jButtonVoltarActionPerformed(evt);
             }
         });
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        jLabelNomeMusicas.setText("Nome Musicas:");
+
+        jLabelSubtitle.setText("Subtitle:");
+
+        jLabelComentarios.setText("Comentarios:");
+
+        jLabelArtista.setText("Artista:");
+
+        jLabelArtistaDoAlbum.setText("Artista do album:");
+
+        jLabelAlbum.setText("Album:");
+
+        jLabelAno.setText("Ano:");
+
+        jLabelGenero.setText("Genero:");
+
+        jButtonTags.setText("Tags");
+
+        jRadioButtonOrdemNumerica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                jRadioButtonOrdemNumericaActionPerformed(evt);
             }
         });
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonConfirma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                jRadioButtonConfirmaActionPerformed(evt);
             }
         });
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldAristaDoAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                jTextFieldAristaDoAlbumActionPerformed(evt);
             }
         });
 
-        jLabel10.setText("Ordem Numerica");
+        jTextFieldGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldGeneroActionPerformed(evt);
+            }
+        });
 
-        jLabel11.setText("Eu confirm que desejo colocar tags");
+        jTextFieldAno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAnoActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Concluir");
+        jLabelOrdemNumerica.setText("Ordem Numerica:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jLabelConfirma.setText("Eu confirm que desejo colocar tags");
+
+        jButtonConcluirTag.setText("Concluir");
+
+        jTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -144,17 +164,32 @@ public class JanelaMusicas extends javax.swing.JFrame {
                 "Musica", "Nome"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTabela);
+        if (jTabela.getColumnModel().getColumnCount() > 0) {
+            jTabela.getColumnModel().getColumn(0).setMaxWidth(60);
+        }
 
-        jButton7.setText("Concluir");
+        jButtonConcluirTabela.setText("Concluir");
+        jButtonConcluirTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConcluirTabelaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,61 +200,64 @@ public class JanelaMusicas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addComponent(jButton4)
+                        .addComponent(jButtonVoltar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
+                        .addComponent(jButtonRenomear)
                         .addGap(117, 117, 117))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(jLabelDiretorio)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jButton2))
+                                        .addComponent(jLabelNomeMusicas)
+                                        .addComponent(jButtonMusicas))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton5))
+                                    .addComponent(jButtonTags))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(29, 29, 29)
-                                    .addComponent(jButton1))))
+                                    .addComponent(jButtonSelecionar)))
+                            .addComponent(jLabelMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(106, 106, 106)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jRadioButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel11)
+                        .addGap(6, 6, 6)
+                        .addComponent(jRadioButtonConfirma)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelConfirma)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                        .addComponent(jButton6))
+                        .addComponent(jButtonConcluirTag))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel10))
-                        .addGap(55, 55, 55)
+                            .addComponent(jLabelArtistaDoAlbum)
+                            .addComponent(jLabelOrdemNumerica)
+                            .addComponent(jLabelGenero)
+                            .addComponent(jLabelAno)
+                            .addComponent(jLabelAlbum)
+                            .addComponent(jLabelArtista)
+                            .addComponent(jLabelComentarios)
+                            .addComponent(jLabelSubtitle))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField8)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField4)
+                            .addComponent(jRadioButtonOrdemNumerica)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField7))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldAlbum)
+                                    .addComponent(jTextFieldSubtitle)
+                                    .addComponent(jTextFieldComentarios)
+                                    .addComponent(jTextFieldAristaDoAlbum)
+                                    .addComponent(jTextFieldArtista, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextFieldGenero)
+                                    .addComponent(jTextFieldAno, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(45, 45, 45)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(96, 96, 96)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7)))
+                        .addComponent(jButtonConcluirTabela)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -228,65 +266,69 @@ public class JanelaMusicas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelSubtitle)
+                            .addComponent(jTextFieldSubtitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelComentarios)
+                            .addComponent(jTextFieldComentarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelArtista)
+                            .addComponent(jTextFieldArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jButton5)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel6)
-                                .addGap(86, 86, 86)))
+                            .addComponent(jLabelArtistaDoAlbum)
+                            .addComponent(jTextFieldAristaDoAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelAlbum)
+                            .addComponent(jTextFieldAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelAno)
+                            .addComponent(jTextFieldAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButtonTags)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabelGenero)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jTextFieldGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel11)
-                                .addComponent(jButton6))
-                            .addComponent(jRadioButton2)))
+                            .addComponent(jRadioButtonOrdemNumerica)
+                            .addComponent(jLabelOrdemNumerica))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelConfirma)
+                            .addComponent(jButtonConcluirTag)
+                            .addComponent(jRadioButtonConfirma)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(jLabelDiretorio)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
-                        .addGap(92, 92, 92)
-                        .addComponent(jLabel2)
+                            .addComponent(jTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonSelecionar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(jLabelMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabelNomeMusicas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonMusicas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4))))
+                            .addComponent(jButtonRenomear)
+                            .addComponent(jButtonVoltar))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jButton7)
+                .addComponent(jButtonConcluirTabela)
                 .addGap(21, 21, 21))
         );
 
@@ -294,33 +336,128 @@ public class JanelaMusicas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        diretorio = "";
+        jTextFieldEndereco.setText("");
+        jLabelMsg.setText("");
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        chooser.setAcceptAllFileFilterUsed(false);
+        chooser.setDialogTitle("Pasta");
+        chooser.showOpenDialog(null);
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+        try {
+            File f = chooser.getSelectedFile();
+            diretorio = f.getAbsolutePath();
+            jTextFieldEndereco.setText(diretorio);
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+            Musicas x = new Musicas();
+            x.NumeroMu(diretorio);
+            numerodemusicas = x.getCont_musica();
+            if (numerodemusicas > 1) {
+                jLabelMsg.setForeground(Color.black);
+                jLabelMsg.setText(numerodemusicas + " Mússica Encontradas");
+            } else if (numerodemusicas == 1) {
+                jLabelMsg.setForeground(Color.black);
+                jLabelMsg.setText("Apenas " + numerodemusicas + " Encontrada");
+            } else {
+                jLabelMsg.setForeground(Color.red);
+                jLabelMsg.setText("Nenhum Mússica Encontrada");
+            }
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+        } catch (NullPointerException e) {
+            jLabelMsg.setForeground(Color.red);
+            jLabelMsg.setText("Diretorio vazio");
+        }
+        
+        
+    }//GEN-LAST:event_jButtonSelecionarActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void jTextFieldEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEnderecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_jTextFieldEnderecoActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void jRadioButtonOrdemNumericaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonOrdemNumericaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_jRadioButtonOrdemNumericaActionPerformed
+
+    private void jRadioButtonConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonConfirmaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonConfirmaActionPerformed
+
+    private void jTextFieldAristaDoAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAristaDoAlbumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAristaDoAlbumActionPerformed
+
+    private void jTextFieldGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldGeneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldGeneroActionPerformed
+
+    private void jTextFieldAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAnoActionPerformed
+
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        // TODO add your handling code here:
+        
+        new JanelaInicial().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jButtonMusicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMusicasActionPerformed
+        // TODO add your handling code here:
+        
+        diretorio = "";
+        jLabelMsg.setText("");
+
+        diretorio = jTextFieldEndereco.getText();
+
+        while (jTabela.getModel().getRowCount() > 0) {
+            DefaultTableModel val = (DefaultTableModel) jTabela.getModel();
+            val.removeRow(0);
+        }
+        try {
+
+            Musicas x = new Musicas();
+
+            x.NumeroMu(diretorio);
+            numerodemusicas = x.getCont_musica();
+            if (numerodemusicas > 1) {
+                jLabelMsg.setForeground(Color.black);
+                jLabelMsg.setText(numerodemusicas + " Musicas Encontradas");
+            } else {
+                jLabelMsg.setForeground(Color.black);
+                jLabelMsg.setText("Apenas " + numerodemusicas + " Encontrada");
+            }
+
+        } catch (NullPointerException e) {
+            jLabelMsg.setForeground(Color.red);
+            jLabelMsg.setText("Diretorio vazio");
+        }
+
+        DefaultTableModel val = (DefaultTableModel) jTabela.getModel();
+        for (int i = 1; i <= numerodemusicas; i++) {
+
+            if (i < 10) {
+                val.addRow(new String[]{"0" + i, ""});
+            } else {
+                val.addRow(new String[]{Integer.toString(i), ""});
+
+            }
+        }
+    }//GEN-LAST:event_jButtonMusicasActionPerformed
+
+    private void jButtonConcluirTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConcluirTabelaActionPerformed
+        // TODO add your handling code here:
+         for (int i = 0; i < numerodemusicas; i++) {
+            Object value = jTabela.getValueAt(i, 1);
+            arquivos[i] = (String) value;
+             System.out.println(arquivos[i]);
+        }
+        
+    }//GEN-LAST:event_jButtonConcluirTabelaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -358,35 +495,36 @@ public class JanelaMusicas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JButton jButtonConcluirTabela;
+    private javax.swing.JButton jButtonConcluirTag;
+    private javax.swing.JButton jButtonMusicas;
+    private javax.swing.JButton jButtonRenomear;
+    private javax.swing.JButton jButtonSelecionar;
+    private javax.swing.JButton jButtonTags;
+    private javax.swing.JButton jButtonVoltar;
+    private javax.swing.JLabel jLabelAlbum;
+    private javax.swing.JLabel jLabelAno;
+    private javax.swing.JLabel jLabelArtista;
+    private javax.swing.JLabel jLabelArtistaDoAlbum;
+    private javax.swing.JLabel jLabelComentarios;
+    private javax.swing.JLabel jLabelConfirma;
+    private javax.swing.JLabel jLabelDiretorio;
+    private javax.swing.JLabel jLabelGenero;
+    private javax.swing.JLabel jLabelMsg;
+    private javax.swing.JLabel jLabelNomeMusicas;
+    private javax.swing.JLabel jLabelOrdemNumerica;
+    private javax.swing.JLabel jLabelSubtitle;
+    private javax.swing.JRadioButton jRadioButtonConfirma;
+    private javax.swing.JRadioButton jRadioButtonOrdemNumerica;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTable jTabela;
+    private javax.swing.JTextField jTextFieldAlbum;
+    private javax.swing.JTextField jTextFieldAno;
+    private javax.swing.JTextField jTextFieldAristaDoAlbum;
+    private javax.swing.JTextField jTextFieldArtista;
+    private javax.swing.JTextField jTextFieldComentarios;
+    private javax.swing.JTextField jTextFieldEndereco;
+    private javax.swing.JTextField jTextFieldGenero;
+    private javax.swing.JTextField jTextFieldSubtitle;
     // End of variables declaration//GEN-END:variables
 }

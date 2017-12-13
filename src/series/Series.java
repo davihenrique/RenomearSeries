@@ -113,7 +113,7 @@ public class Series {
 
     public void gravar(String endereco, String sistema, int temporada, String nome, String nomesEP, String formato, int cont, int padrao) {
 
-        // String endereco = String.valueOf(arquivo);
+        // Padrão de gravação
         switch (padrao) {
 
             case 1:
@@ -124,7 +124,6 @@ public class Series {
                 }
                 break;
 
-            /*[16:47, 8/12/2017] Lucas: Os Simpsons S2E3 a vida de Bart*/
             case 2:
                 if (cont > 9) {
                     novo = new File(endereco + sistema + nome + " S" + temporada + "E" + cont + " " + nomesEP + formato);
