@@ -26,6 +26,7 @@ public class JanelaMusicas extends javax.swing.JFrame {
     String diretorio;
     int numerodemusicas = 0;
     String[] arquivos = new String[99];
+    int pradao = 0;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -95,6 +96,11 @@ public class JanelaMusicas extends javax.swing.JFrame {
         });
 
         jButtonRenomear.setText("Renomear");
+        jButtonRenomear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRenomearActionPerformed(evt);
+            }
+        });
 
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -193,6 +199,11 @@ public class JanelaMusicas extends javax.swing.JFrame {
         });
 
         jComboBoxPadrao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "n - NomeMusica", "n NomeBanda - NomeMusica" }));
+        jComboBoxPadrao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxPadraoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -463,6 +474,28 @@ public class JanelaMusicas extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonConcluirTabelaActionPerformed
+
+    private void jComboBoxPadraoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPadraoActionPerformed
+        // TODO add your handling code here:
+        
+        
+        switch (jComboBoxPadrao.getSelectedIndex()){
+            case 0:
+               
+                pradao = jComboBoxPadrao.getSelectedIndex() + 1;
+                break;
+            case 1:
+               
+                pradao = jComboBoxPadrao.getSelectedIndex() + 1;
+                break;
+                
+        }
+    }//GEN-LAST:event_jComboBoxPadraoActionPerformed
+
+    private void jButtonRenomearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRenomearActionPerformed
+        // TODO add your handling code here:
+        System.out.println("chegou aqui");
+    }//GEN-LAST:event_jButtonRenomearActionPerformed
 
     /**
      * @param args the command line arguments
