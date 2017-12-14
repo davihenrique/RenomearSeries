@@ -67,6 +67,7 @@ public class JanelaMusicas extends javax.swing.JFrame {
         jTabela = new javax.swing.JTable();
         jButtonConcluirTabela = new javax.swing.JButton();
         jLabelMsg = new javax.swing.JLabel();
+        jComboBoxPadrao = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Renomear Músicas");
@@ -191,6 +192,8 @@ public class JanelaMusicas extends javax.swing.JFrame {
             }
         });
 
+        jComboBoxPadrao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "n - NomeMusica", "n NomeBanda - NomeMusica" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -218,7 +221,8 @@ public class JanelaMusicas extends javax.swing.JFrame {
                                     .addComponent(jTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(29, 29, 29)
                                     .addComponent(jButtonSelecionar)))
-                            .addComponent(jLabelMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(106, 106, 106)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -294,9 +298,7 @@ public class JanelaMusicas extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jButtonTags)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jLabelGenero)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addComponent(jLabelGenero, javax.swing.GroupLayout.Alignment.TRAILING))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jTextFieldGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
@@ -304,10 +306,11 @@ public class JanelaMusicas extends javax.swing.JFrame {
                             .addComponent(jRadioButtonOrdemNumerica)
                             .addComponent(jLabelOrdemNumerica))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelConfirma)
-                            .addComponent(jButtonConcluirTag)
-                            .addComponent(jRadioButtonConfirma)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButtonConfirma)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelConfirma)
+                                .addComponent(jButtonConcluirTag))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelDiretorio)
                         .addGap(18, 18, 18)
@@ -316,7 +319,9 @@ public class JanelaMusicas extends javax.swing.JFrame {
                             .addComponent(jButtonSelecionar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxPadrao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
                         .addComponent(jLabelNomeMusicas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonMusicas)
@@ -502,6 +507,7 @@ public class JanelaMusicas extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSelecionar;
     private javax.swing.JButton jButtonTags;
     private javax.swing.JButton jButtonVoltar;
+    private javax.swing.JComboBox<String> jComboBoxPadrao;
     private javax.swing.JLabel jLabelAlbum;
     private javax.swing.JLabel jLabelAno;
     private javax.swing.JLabel jLabelArtista;

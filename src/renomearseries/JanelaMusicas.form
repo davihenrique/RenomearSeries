@@ -53,6 +53,7 @@
                               </Group>
                           </Group>
                           <Component id="jLabelMsg" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
+                          <Component id="jComboBoxPadrao" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                   </Group>
@@ -149,10 +150,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jButtonTags" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabelGenero" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabelGenero" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jTextFieldGenero" min="-2" max="-2" attributes="0"/>
@@ -164,10 +162,12 @@
                           <Component id="jLabelOrdemNumerica" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelConfirma" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonConcluirTag" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jRadioButtonConfirma" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelConfirma" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonConcluirTag" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -179,7 +179,9 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabelMsg" min="-2" pref="25" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jComboBoxPadrao" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="jLabelNomeMusicas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonMusicas" min="-2" max="-2" attributes="0"/>
@@ -379,6 +381,19 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelMsg">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jComboBoxPadrao">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="n - NomeMusica"/>
+            <StringItem index="1" value="n NomeBanda - NomeMusica"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
