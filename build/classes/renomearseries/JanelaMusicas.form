@@ -90,7 +90,7 @@
                           <Component id="jRadioButtonOrdemNumerica" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldAlbum" pref="181" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAlbum" pref="139" max="32767" attributes="0"/>
                                   <Component id="jTextFieldSubtitle" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextFieldComentarios" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextFieldAristaDoAlbum" alignment="0" max="32767" attributes="0"/>
@@ -98,7 +98,17 @@
                                   <Component id="jTextFieldGenero" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextFieldAno" alignment="1" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="45" pref="45" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jRadioButtonGenero" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonAristaDoAlbum" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonComentarios" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonAno" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonSubtitle" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonArtista" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonAlbum" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -122,45 +132,75 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelSubtitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldSubtitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelComentarios" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldComentarios" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelArtista" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldArtista" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabelArtistaDoAlbum" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldAristaDoAlbum" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelAlbum" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldAlbum" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabelAno" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldAno" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jButtonTags" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelGenero" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabelSubtitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldSubtitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabelComentarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldComentarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonSubtitle" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonComentarios" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabelArtista" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldArtista" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabelArtistaDoAlbum" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldAristaDoAlbum" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabelAlbum" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldAlbum" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jTextFieldGenero" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jRadioButtonArtista" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonAristaDoAlbum" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jRadioButtonAlbum" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabelAno" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAno" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jRadioButtonAno" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jButtonTags" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelGenero" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jTextFieldGenero" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jRadioButtonGenero" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -185,7 +225,7 @@
                               <Component id="jButtonMusicas" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="67" max="32767" attributes="0"/>
+                      <EmptySpace pref="73" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
@@ -428,6 +468,38 @@
     <Component class="javax.swing.JRadioButton" name="jRadioButtonConfirmaRenomear">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonConfirmaRenomearActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonGenero">
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonAristaDoAlbum">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonAristaDoAlbumActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonAlbum">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonAlbumActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonArtista">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonArtistaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonComentarios">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonComentariosActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonAno">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonAnoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonSubtitle">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSubtitleActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

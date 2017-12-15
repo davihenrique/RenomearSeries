@@ -132,9 +132,9 @@ public class Musicas {
                 
             case 2:
                 if (cont > 9) {
-                    novo = new File(endereco + sistema+ cont +banda +" - " + nomesMu + formato);
+                    novo = new File(endereco + sistema+ cont +" "+banda +" - " + nomesMu + formato);
                 } else {
-                    novo = new File(endereco + sistema+"0"+ cont  +banda +" - " + nomesMu + formato);
+                    novo = new File(endereco + sistema+"0"+ cont +" "+ banda +" - " + nomesMu + formato);
                     
                 }
                 break;
