@@ -108,9 +108,36 @@ public class RenomearTags {
                         //System.out.println(String.valueOf(arquivos[i]));
                        //COLOCAR TAGS
                        
-                       RenomearTag(arquivos[i], cont_musica);
+                       //RenomearTag(arquivos[i], cont_musica);
 
+                        RenomearTag(arquivos[i], cont_musica);
                         
+                        if(!"<limpo>".equals(subtitle)){
+                            RenomearSubtitle(arquivos[i]);
+                        }
+                        if(!"<limpo>".equals(comentario)){
+                            RenomearComentario(arquivos[i]);
+                        }
+                        if(!"<limpo>".equals(artista)){
+                            RenomearArtista(arquivos[i]);
+                        }
+                        if(!"<limpo>".equals(artista_album)){
+                            RenomearAlbumArtist(arquivos[i]);
+                        }
+                        if(!"<limpo>".equals(album)){
+                            RenomearAlbum(arquivos[i]);
+                        }
+                        if(!"<limpo>".equals(ano)){
+                            RenomearAno(arquivos[i]);
+                        }
+                        
+                            RenomearTrack(arquivos[i],cont_musica);
+                         
+                        if(!"<limpo>".equals(genero)){
+                            RenomearGenero(arquivos[i]);
+                        }
+                        
+                        RenomearCapa(arquivos[i], true);
 
                         /*Contador de aquivos*/
                         cont_musica++;
@@ -130,21 +157,21 @@ public class RenomearTags {
            // File arquivo = new File(faixa);
        
 
-            System.out.println(arquivo);
+           // System.out.println(arquivo);
 
-            AudioFile f = AudioFileIO.read(arquivo);
-            Tag tag = f.getTag();
-            tag.setField(FieldKey.TITLE, musicas[x]);
-            tag.setField(FieldKey.SUBTITLE, subtitle);
-            tag.setField(FieldKey.COMMENT, comentario);
-            tag.setField(FieldKey.ARTIST, artista);
-            tag.setField(FieldKey.ALBUM_ARTIST, artista_album);
-            tag.setField(FieldKey.ALBUM, album);
-            tag.setField(FieldKey.YEAR, ano);
-            tag.setField(FieldKey.TRACK, Integer.toString(x));
-            tag.setField(FieldKey.GENRE, genero);
+           // AudioFile f = AudioFileIO.read(arquivo);
+           // Tag tag = f.getTag();
+          //  tag.setField(FieldKey.TITLE, musicas[x]);
+            //tag.setField(FieldKey.SUBTITLE, subtitle);
+           // tag.setField(FieldKey.COMMENT, comentario);
+           // tag.setField(FieldKey.ARTIST, artista);
+          //  tag.setField(FieldKey.ALBUM_ARTIST, artista_album);
+           // tag.setField(FieldKey.ALBUM, album);
+           // tag.setField(FieldKey.YEAR, ano);
+           // tag.setField(FieldKey.TRACK, Integer.toString(x));
+           // tag.setField(FieldKey.GENRE, genero);
 
-            if ("N".equals(capa)) {
+         /*   if ("N".equals(capa)) {
                 tag.deleteArtworkField();
             } else {
                 tag.setField(ArtworkFactory.createArtworkFromFile(new File(capa)));
@@ -152,8 +179,86 @@ public class RenomearTags {
 
             AudioFileIO.write(f);
 
+*/
+
         
 
     }
+    
+     public void RenomearMusica(File faixa, int x) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException{
+        AudioFile f = AudioFileIO.read(faixa);
+            Tag tag = f.getTag();
+             tag.setField(FieldKey.TITLE, musicas[x]);
+              AudioFileIO.write(f);
+    }
 
+    public void RenomearSubtitle(File faixa) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException{
+        AudioFile f = AudioFileIO.read(faixa);
+            Tag tag = f.getTag();
+            tag.setField(FieldKey.SUBTITLE, subtitle);
+              AudioFileIO.write(f);
+    }
+    
+    public void RenomearComentario(File faixa) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException{
+        AudioFile f = AudioFileIO.read(faixa);
+            Tag tag = f.getTag();
+             tag.setField(FieldKey.COMMENT, comentario);
+              AudioFileIO.write(f);
+    }
+    
+    public void RenomearArtista(File faixa) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException{
+        AudioFile f = AudioFileIO.read(faixa);
+            Tag tag = f.getTag();
+            tag.setField(FieldKey.ARTIST, artista);
+              AudioFileIO.write(f);
+    }
+   
+    public void RenomearAlbumArtist(File faixa) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException{
+        AudioFile f = AudioFileIO.read(faixa);
+            Tag tag = f.getTag();
+             tag.setField(FieldKey.ALBUM_ARTIST, artista_album);
+              AudioFileIO.write(f);
+    }
+    public void RenomearAlbum(File faixa) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException{
+        AudioFile f = AudioFileIO.read(faixa);
+            Tag tag = f.getTag();
+              tag.setField(FieldKey.ALBUM, album);
+              AudioFileIO.write(f);
+    }
+    
+    public void RenomearAno(File faixa) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException{
+        AudioFile f = AudioFileIO.read(faixa);
+            Tag tag = f.getTag();
+             tag.setField(FieldKey.YEAR, ano);
+              AudioFileIO.write(f);
+    }
+    
+    public void RenomearTrack(File faixa, int x) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException{
+        AudioFile f = AudioFileIO.read(faixa);
+            Tag tag = f.getTag();
+             tag.setField(FieldKey.TRACK, Integer.toString(x));
+              AudioFileIO.write(f);
+    }
+    
+    public void RenomearGenero(File faixa) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException{
+        AudioFile f = AudioFileIO.read(faixa);
+            Tag tag = f.getTag();
+             tag.setField(FieldKey.GENRE, genero);
+              AudioFileIO.write(f);
+    }
+    public void RenomearCapa(File faixa, boolean capa) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException{
+       
+        
+        
+        
+        AudioFile f = AudioFileIO.read(faixa);
+            Tag tag = f.getTag();
+            if(capa){
+                 tag.setField(ArtworkFactory.createArtworkFromFile(new File(this.capa)));
+            }else{
+                 tag.deleteArtworkField();
+            }
+            
+              AudioFileIO.write(f);
+    }
 }

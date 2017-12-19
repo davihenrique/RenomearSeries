@@ -80,7 +80,7 @@ public class JanelaMusicas extends javax.swing.JFrame {
         jRadioButtonComentarios = new javax.swing.JRadioButton();
         jRadioButtonAno = new javax.swing.JRadioButton();
         jRadioButtonSubtitle = new javax.swing.JRadioButton();
-        jTextFieldGenero1 = new javax.swing.JTextField();
+        jTextFieldGenero = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Renomear Músicas");
@@ -261,9 +261,9 @@ public class JanelaMusicas extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldGenero1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldGenero1ActionPerformed(evt);
+                jTextFieldGeneroActionPerformed(evt);
             }
         });
 
@@ -335,7 +335,7 @@ public class JanelaMusicas extends javax.swing.JFrame {
                                             .addComponent(jTextFieldAno, javax.swing.GroupLayout.Alignment.TRAILING))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jTextFieldGenero1)
+                                        .addComponent(jTextFieldGenero)
                                         .addGap(14, 14, 14)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jRadioButtonGenero)
@@ -409,7 +409,7 @@ public class JanelaMusicas extends javax.swing.JFrame {
                                             .addComponent(jButtonTags)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(jLabelGenero)
-                                                .addComponent(jTextFieldGenero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jTextFieldGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(1, 1, 1))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jRadioButtonGenero)
@@ -624,7 +624,7 @@ public class JanelaMusicas extends javax.swing.JFrame {
                 diretorio = jTextFieldEndereco.getText();
                 //(String diretorio, String subtitle, String comentario, String artista, String artista_album, String album, String ano, String genero, String musicas[], String capa)
                RenomearTags x = new RenomearTags(diretorio,jTextFieldSubtitle.getText(),jTextFieldComentarios.getText(),jTextFieldArtista.getText(),jTextFieldAristaDoAlbum.getText(),jTextFieldAlbum.getText(),jTextFieldAno.getText(),
-               jTextFieldCapa.getText(),arquivos,jTextFieldCapa.getText());
+               jTextFieldGenero.getText(),arquivos,jTextFieldCapa.getText());
             }
 
         } else {
@@ -662,9 +662,9 @@ public class JanelaMusicas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonSubtitleActionPerformed
 
-    private void jTextFieldGenero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldGenero1ActionPerformed
+    private void jTextFieldGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldGeneroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldGenero1ActionPerformed
+    }//GEN-LAST:event_jTextFieldGeneroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -742,7 +742,7 @@ public class JanelaMusicas extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCapa;
     private javax.swing.JTextField jTextFieldComentarios;
     private javax.swing.JTextField jTextFieldEndereco;
-    private javax.swing.JTextField jTextFieldGenero1;
+    private javax.swing.JTextField jTextFieldGenero;
     private javax.swing.JTextField jTextFieldSubtitle;
     // End of variables declaration//GEN-END:variables
 }
