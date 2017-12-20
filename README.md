@@ -1,17 +1,16 @@
 ﻿<h1>Renomear Séries<h1>
 
-<h2>Programa com o objetivo de renomear séries, elaborado para facilitar renomear arquivos de forma organizada.</h2>
+<h2> O objetivo é renomear séries, músicas e tags de músicas,  está sendo elaborado para para facilitar renomear arquivos de forma simples e organizada.</h2>
 
-Sobre o programa:
+<h2>A interface em swing é provisória, há planos futuros em repagina-lá igual ao nome da aplicação.</h2>
+
+A aplicação faz uso de uma biblioteca que positibitar alterar de tags em arquivos de músicas, chamada jaudiotagger.
 <ul>
-<li>O programa ainda está em desenvolvimento, podendo apresentar falhas em sua execução.</li>
-<li>Recomenda-se fazer copias de segurança dos arquivos que deseja renomear usando esse programa.</li>
+<li>Link da pagina: http://www.jthink.net/jaudiotagger/</li>
 </ul>
 
-Para executar:
+Sobre a aplicação:
 <ul>
-<li>O executável do programa é um (.jar), para executar é necessário ter o Java instalado em seu computador https://www.java.com/pt_BR/download/</li>
-<li>Caso queira apenas executar o programa sem fazer modificações no código, baixe apenas o arquivo: “RenomearSeries.jar” https://github.com/davihenrique/RenomearSeries/blob/master/dist/RenomearSeries.jar .</li>
+<li>A aplicação ainda está em desenvolvimento, podendo apresentar falhas em sua execução.</li>
+<li>Recomenda-se fazer cópias de segurança dos arquivos caso deseje testar.</li>
 </ul>
-
-
