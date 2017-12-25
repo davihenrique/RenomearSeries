@@ -34,10 +34,13 @@ public class RenomearTags {
     String genero;
     String[] musicas = new String[99];
     String capa;
+    boolean numero;
     
     private String[] formatos = new String[5];
     int cont_musica = 0;
     private File novo;
+
+
     
     
     
@@ -56,7 +59,8 @@ public class RenomearTags {
         return diretorio.listFiles();
     }
     
-
+    
+/*
     public RenomearTags(String diretorio, String subtitle, String comentario, String artista, String artista_album, String album, String ano, String genero, String musicas[], String capa) {
         this.diretorio = diretorio;
         this.subtitle = subtitle;
@@ -68,14 +72,46 @@ public class RenomearTags {
         this.genero = genero;
         this.musicas = musicas;
         this.capa = capa;
-        Renomamu(diretorio);
+    }*/
+    
+    
+    //Sobrecarga
+    
+ 
+    
+    public RenomearTags(String diretorio, String[] musicas, String comentario, String comments, String artista, String album_artista, String album, String ano, boolean number, String genre, String artwork){
+        this.diretorio = diretorio;
+        this.musicas = musicas;
+        this.comentario=comentario;
+        this.artista = artista;
+        this.album = album;
+        this.ano = ano;
+        this.numero = number;
+        this.genero = genre;
+        this.capa = artwork;
+        
+        System.out.println("cheogu aqui em cima");
     }
+    
+    
+    public RenomearTags(String diretorio, String comentario, String comments, String artista, String album_artista, String album, String ano, boolean number, String genre, String artwork){
+        this.diretorio = diretorio;
+        this.comentario=comentario;
+        this.artista = artista;
+        this.album = album;
+        this.ano = ano;
+        this.numero = number;
+        this.genero = genre;
+        this.capa = artwork;
+         System.out.println("cheogu aqui embaixo");
+    }
+    
         
     /*Realizar Alteraçoes*/
-    public void Renomamu(String endereco) {
+    public void Renomamu() {
 
         /*Recebe aquivos*/
-        File arquivos[] = Ligar(endereco);
+        File arquivos[] = Ligar(diretorio);
         /*carregar listas de formatos*/
         Listaformatos();
 
