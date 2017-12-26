@@ -35,7 +35,7 @@ public class Musicas {
         return diretorio.listFiles();
     }
 
-    /*Metodo para volta numero de Epsodios*/
+    /*Metodo para volta numero de Musicas*/
     public void NumeroMu(String endereco) {
         /*Recebe aquivos*/
         File arquivos[] = Ligar(endereco);

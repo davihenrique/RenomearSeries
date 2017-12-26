@@ -48,49 +48,51 @@ public class JanelaMusicas extends javax.swing.JFrame {
        String img;
        boolean numero;
        
+       //
+       
        
        //Verificando
        
        if( jRadioButtonSubtitle.isSelected()){
           subtitle = "<limpo>";
        }else{
-           subtitle = "oi";//jTextFieldSubtitle.getText();
+           subtitle = jTextFieldSubtitle.getText();
        }
        
        if(jRadioButtonComentario.isSelected()){
            comments = "<limpo>";
        }else{
-           comments = "oi";//jTextFieldComentario.getText();
+           comments = jTextFieldComentario.getText();
        }
        if(jRadioButtonArtista.isSelected()){
            contribuiting_artist = "<limpo>";
        }else{
-           contribuiting_artist = "oi";//jTextFieldArtista.getText();
+           contribuiting_artist = jTextFieldArtista.getText();
        }
        if(jRadioButtonAristaDoAlbum.isSelected() ){
            album_artista = "<limpo>";
        }else{
-           album_artista="oi";//jTextFieldAristaDoAlbum.getText();
+           album_artista=jTextFieldAristaDoAlbum.getText();
        }
        if(jRadioButtonAlbum.isSelected()){
            album= "<limpo>";
        }else{
-           album ="oi";//jTextFieldAlbum.getText();
+           album =jTextFieldAlbum.getText();
        }
        if(jRadioButtonAno.isSelected()){
            year="<limpo>";
        }else{
-           year= "oi";//jTextFieldAno.getText();
+           year= jTextFieldAno.getText();
        }
        if(jRadioButtonGenero.isSelected()){
            genre ="<limpo>";
        }else{
-           genre="oi";//jTextFieldGenero.getText();
+           genre=jTextFieldGenero.getText();
        }
        if(jRadioButtonImg.isSelected()){
            img ="<limpo>";
        }else{
-           img="oi";//jTextFieldCapa.getText();
+           img=jTextFieldCapa.getText();
        }
        
        if(jRadioButtonOrdemNumerica.isSelected()){
@@ -99,17 +101,15 @@ public class JanelaMusicas extends javax.swing.JFrame {
            numero = false;
        }
        
-       
-    
-       
-       
        //Chamar o construtor
+       
        if(jRadioButtonAdicionarMusicas.isSelected()){
            RenomearTags x = new RenomearTags(diretorio,arquivos,subtitle,comments, contribuiting_artist,album_artista, album, year,numero, genre,img);
+          
            
        }else{
-           System.out.println("chegou aquifsdfasdsadfdsf");
-           RenomearTags x = new RenomearTags(this.diretorio,subtitle,comments, contribuiting_artist,album_artista, album, year,numero, genre,img);
+           RenomearTags x = new RenomearTags(diretorio,subtitle,comments, contribuiting_artist,album_artista, album, year,numero, genre,img);
+          
        }
     
      
@@ -723,7 +723,6 @@ public class JanelaMusicas extends javax.swing.JFrame {
         for (int i = 0; i < numerodemusicas; i++) {
             Object value = jTabela.getValueAt(i, 1);
             arquivos[i] = (String) value;
-            System.out.println(arquivos[i]);
         }
 
     }//GEN-LAST:event_jButtonConcluirTabelaActionPerformed
@@ -748,9 +747,10 @@ public class JanelaMusicas extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Caso o usuario quereira renomear
         if (jRadioButtonConfirmaRenomear.isSelected() || jRadioButtonConfirmaTags.isSelected()) {
-
+            
+            diretorio = jTextFieldEndereco.getText();
             if (jRadioButtonConfirmaRenomear.isSelected()) {
-                diretorio = jTextFieldEndereco.getText();
+                
                 Musicas x = new Musicas();
 
                 try {

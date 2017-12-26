@@ -6,6 +6,7 @@
 package musicas;
 
 import java.io.File;
+
 import java.io.IOException;
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
@@ -17,14 +18,13 @@ import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.Tag;
 import org.jaudiotagger.tag.TagException;
 import org.jaudiotagger.tag.images.ArtworkFactory;
-
 /**
  *
  * @author Davi Henrique
  */
 public class RenomearTags {
 
-    String diretorio;
+    String endereco;
     String subtitle;
     String comentario;
     String artista;
@@ -35,16 +35,45 @@ public class RenomearTags {
     String[] musicas = new String[99];
     String capa;
     boolean numero;
-    
+
     private String[] formatos = new String[5];
+
     int cont_musica = 0;
     private File novo;
+    boolean temmusicas=false;
 
+    //Sobrecarga
+    public RenomearTags(String diretorio, String[] musicas, String subtitle, String comentario, String artista, String album_artista, String album, String ano, boolean number, String genre, String artwork) {
+        this.endereco = diretorio;
+        this.musicas = musicas;
+        this.subtitle = subtitle;
+        this.comentario = comentario;
+        this.artista = artista;
+        this.album = album;
+        this.ano = ano;
+        this.numero = number;
+        this.genero = genre;
+        this.capa = artwork;
+        temmusicas = true;
+        System.out.println("chegou");
+        NumeroMu(diretorio);
+    }
+    public RenomearTags(String diretorio, String subtitle, String comentario, String artista, String album_artista, String album, String ano, boolean number, String genre, String artwork) {
+        this.endereco = diretorio;
+        this.subtitle = subtitle;
+        this.comentario = comentario;
+        this.artista = artista;
+        this.album = album;
+        this.ano = ano;
+        this.numero = number;
+        this.genero = genre;
+        this.capa = artwork;
+        System.out.println("chegou");
+        NumeroMu(diretorio);
 
-    
-    
-    
-        /*Lista de formatos suportados*/
+    }
+
+     /*Lista de formatos suportados*/
     private void Listaformatos() {
         formatos[0] = ".mp3";
         formatos[1] = ".wma";
@@ -52,82 +81,22 @@ public class RenomearTags {
         formatos[3] = ".ogg";
         formatos[4] = ".aac";
     }
-
+    
+    
      /*Pegar Aquivos*/
     private File[] Ligar(String endereco) {
         File diretorio = new File(endereco);
         return diretorio.listFiles();
     }
-    
-    
-/*
-    public RenomearTags(String diretorio, String subtitle, String comentario, String artista, String artista_album, String album, String ano, String genero, String musicas[], String capa) {
-        this.diretorio = diretorio;
-        this.subtitle = subtitle;
-        this.comentario = comentario;
-        this.artista = artista;
-        this.artista_album = artista_album;
-        this.album = album;
-        this.ano = ano;
-        this.genero = genero;
-        this.musicas = musicas;
-        this.capa = capa;
-    }*/
-    
-    
-    //Sobrecarga
-    
- 
-    
-    public RenomearTags(String diretorio, String[] musicas, String comentario, String comments, String artista, String album_artista, String album, String ano, boolean number, String genre, String artwork){
-        this.diretorio = diretorio;
-        this.musicas = musicas;
-        this.comentario=comentario;
-        this.artista = artista;
-        this.album = album;
-        this.ano = ano;
-        this.numero = number;
-        this.genero = genre;
-        this.capa = artwork;
-        
-        System.out.println("cheogu aqui em cima");
-    }
-    
-    
-    public RenomearTags(String diretorio, String comentario, String comments, String artista, String album_artista, String album, String ano, boolean number, String genre, String artwork){
-        this.diretorio = diretorio;
-        this.comentario=comentario;
-        this.artista = artista;
-        this.album = album;
-        this.ano = ano;
-        this.numero = number;
-        this.genero = genre;
-        this.capa = artwork;
-         System.out.println("cheogu aqui embaixo");
-    }
-    
-        
-    /*Realizar Alteraçoes*/
-    public void Renomamu() {
 
+    /*Metodo para volta numero de Musicas*/
+    public void NumeroMu(String endereco) {
         /*Recebe aquivos*/
-        File arquivos[] = Ligar(diretorio);
-        /*carregar listas de formatos*/
+        File arquivos[] = Ligar(endereco);
+        //carregar listas de formatos
         Listaformatos();
-
-        cont_musica = 0;
         int result = 0;
         int format;
-
-        String sistema;
-
-        /*Verifica sistema*/
-        if ("Linux".equals(System.getProperty("os.name"))) {
-            sistema = "/";
-        } else {
-            sistema = "\\";
-        }
-
         for (int i = 0; i < arquivos.length; i++) {
 
             for (int j = 0; j < formatos.length; j++) {
@@ -140,55 +109,64 @@ public class RenomearTags {
                 try {
                     result = String.valueOf(arquivos[i]).indexOf(formatos[j]);
                     if (result != -1 && result + format == String.valueOf(arquivos[i]).length()) {
-
-                        //System.out.println(String.valueOf(arquivos[i]));
-                       //COLOCAR TAGS
-                       
-                       //RenomearTag(arquivos[i], cont_musica);
-
-                        if(!"<limpo>".equals(subtitle)){
-                            RenomearSubtitle(arquivos[i]);
-                        }
-                        if(!"<limpo>".equals(comentario)){
-                            RenomearComentario(arquivos[i]);
-                        }
-                        if(!"<limpo>".equals(artista)){
-                            RenomearArtista(arquivos[i]);
-                        }
-                        if(!"<limpo>".equals(artista_album)){
-                            RenomearAlbumArtist(arquivos[i]);
-                        }
-                        if(!"<limpo>".equals(album)){
-                            RenomearAlbum(arquivos[i]);
-                        }
-                        if(!"<limpo>".equals(ano)){
-                            RenomearAno(arquivos[i]);
+                        
+                        
+                        if(temmusicas){
+                            
+                           // System.out.println(musicas[cont_musica]);
+                            RenomearMusica(arquivos[cont_musica],musicas[cont_musica]);
                         }
                         
-                            RenomearTrack(arquivos[i],cont_musica);
-                         
-                        if(!"<limpo>".equals(genero)){
-                            RenomearGenero(arquivos[i]);
+                        if(subtitle != "<limpo>"){
+                            RenomearSubtitle(arquivos[cont_musica]);
+                        }
+                        if(comentario != "<limpo>"){
+                            RenomearComentario(arquivos[cont_musica]);
+                        }
+                        if(artista != "<limpo>"){
+                            RenomearArtista(arquivos[cont_musica]);
+                        }
+                        if(album != "<limpo>"){
+                            RenomearAlbum(arquivos[cont_musica]);
+                        }
+                        if(ano != "<limpo>"){
+                            RenomearAno(arquivos[cont_musica]);
+                        }
+                        if(numero){
+                            RenomearTrack(arquivos[cont_musica], cont_musica+1);
                         }
                         
-                        RenomearCapa(arquivos[i], true);
-
+                        if(genero !="<limpo>"){
+                            RenomearGenero(arquivos[cont_musica]);
+                        }
+                        
+                        if(capa != "<limpo>"){
+                             if(capa =="<apagar>"){
+                                RenomearCapa(arquivos[cont_musica], false);
+                            } else{
+                                 RenomearCapa(arquivos[cont_musica], true);
+                             }
+                        }
+                           
+                        
+                        
+                        
                         /*Contador de aquivos*/
+                       // System.out.println(arquivos[cont_musica]);
                         cont_musica++;
-
                     }
                 } catch (Exception e) {
                 }
             }
         }
-
     }
-    
-    
-     public void RenomearMusica(File faixa, int x) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException{
+
+
+
+     public void RenomearMusica(File faixa, String x) throws CannotReadException, IOException, TagException, ReadOnlyFileException, InvalidAudioFrameException, CannotWriteException{
         AudioFile f = AudioFileIO.read(faixa);
             Tag tag = f.getTag();
-             tag.setField(FieldKey.TITLE, musicas[x]);
+             tag.setField(FieldKey.TITLE, x);
               AudioFileIO.write(f);
     }
 
@@ -261,4 +239,5 @@ public class RenomearTags {
             
               AudioFileIO.write(f);
     }
+    
 }
