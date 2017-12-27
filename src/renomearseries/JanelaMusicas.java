@@ -89,6 +89,9 @@ public class JanelaMusicas extends javax.swing.JFrame {
        }else{
            genre=jTextFieldGenero.getText();
        }
+       
+       //jRadioButtonRomImg
+       //implementar fucionalidade
        if(jRadioButtonImg.isSelected()){
            img ="<limpo>";
        }else{
@@ -174,6 +177,7 @@ public class JanelaMusicas extends javax.swing.JFrame {
         jLabelOrdemNumerica1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jRadioButtonAdicionarMusicas = new javax.swing.JRadioButton();
+        jRadioButtonRomImg = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Renomear Músicas");
@@ -232,6 +236,7 @@ public class JanelaMusicas extends javax.swing.JFrame {
 
         jButtonTags.setText("Tags");
 
+        jRadioButtonOrdemNumerica.setBackground(new java.awt.Color(0, 114, 38));
         jRadioButtonOrdemNumerica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonOrdemNumericaActionPerformed(evt);
@@ -378,10 +383,19 @@ public class JanelaMusicas extends javax.swing.JFrame {
 
         jLabel1.setText("Musicas:");
 
+        jRadioButtonAdicionarMusicas.setBackground(new java.awt.Color(0, 114, 38));
         jRadioButtonAdicionarMusicas.setText("Adicionar Musicas");
         jRadioButtonAdicionarMusicas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonAdicionarMusicasActionPerformed(evt);
+            }
+        });
+
+        jRadioButtonRomImg.setBackground(new java.awt.Color(211, 0, 0));
+        jRadioButtonRomImg.setText("Remover Artwork");
+        jRadioButtonRomImg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonRomImgActionPerformed(evt);
             }
         });
 
@@ -464,7 +478,10 @@ public class JanelaMusicas extends javax.swing.JFrame {
                                             .addComponent(jTextFieldAristaDoAlbum, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextFieldArtista)
                                             .addComponent(jTextFieldAno))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jRadioButtonRomImg)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jRadioButtonGenero)
                                     .addComponent(jRadioButtonAristaDoAlbum)
@@ -521,7 +538,6 @@ public class JanelaMusicas extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel1)
                                     .addComponent(jRadioButtonAdicionarMusicas))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -582,7 +598,9 @@ public class JanelaMusicas extends javax.swing.JFrame {
                                     .addComponent(jButtonImg)
                                     .addComponent(jRadioButtonImg)
                                     .addComponent(jLabelOrdemNumerica1))))
-                        .addGap(41, 41, 41)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButtonRomImg)
+                        .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jRadioButtonConfirmaRenomear)
                             .addComponent(jLabelConfirmaRenomear)))
@@ -817,6 +835,10 @@ public class JanelaMusicas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonAdicionarMusicasActionPerformed
 
+    private void jRadioButtonRomImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRomImgActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonRomImgActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -888,6 +910,7 @@ public class JanelaMusicas extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonGenero;
     private javax.swing.JRadioButton jRadioButtonImg;
     private javax.swing.JRadioButton jRadioButtonOrdemNumerica;
+    private javax.swing.JRadioButton jRadioButtonRomImg;
     private javax.swing.JRadioButton jRadioButtonSubtitle;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTabela;

@@ -120,6 +120,10 @@
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jRadioButtonRomImg" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jRadioButtonGenero" min="-2" max="-2" attributes="0"/>
@@ -276,7 +280,9 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jRadioButtonRomImg" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jRadioButtonConfirmaRenomear" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelConfirmaRenomear" min="-2" max="-2" attributes="0"/>
@@ -394,6 +400,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonOrdemNumerica">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="26" green="72" red="0" type="rgb"/>
+        </Property>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonOrdemNumericaActionPerformed"/>
       </Events>
@@ -575,10 +586,24 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonAdicionarMusicas">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="26" green="72" red="0" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Adicionar Musicas"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonAdicionarMusicasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonRomImg">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="d3" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Remover Artwork"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonRomImgActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
