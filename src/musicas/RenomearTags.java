@@ -63,6 +63,7 @@ public class RenomearTags {
         this.subtitle = subtitle;
         this.comentario = comentario;
         this.artista = artista;
+        this.artista_album = album_artista;
         this.album = album;
         this.ano = ano;
         this.numero = number;
@@ -128,6 +129,9 @@ public class RenomearTags {
                         }
                         if(album != "<limpo>"){
                             RenomearAlbum(arquivos[cont_musica]);
+                        }
+                        if(artista_album != "<limpo>"){
+                            RenomearAlbumArtist(arquivos[cont_musica]);
                         }
                         if(ano != "<limpo>"){
                             RenomearAno(arquivos[cont_musica]);
