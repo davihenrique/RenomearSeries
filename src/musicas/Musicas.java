@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package musicas;
 
 import java.io.File;
@@ -13,12 +8,10 @@ import java.io.File;
  */
 public class Musicas {
     
-    private String[] formatos = new String[5];
-    
-    int cont_musica = 0;
+    private final String[] formatos = new String[5];
+    private int cont_musica = 0;
     private File novo;
-    
-    
+        
     /*Lista de formatos suportados*/
     private void Listaformatos() {
         formatos[0] = ".mp3";
@@ -26,10 +19,9 @@ public class Musicas {
         formatos[2] = ".flac";
         formatos[3] = ".ogg";
         formatos[4] = ".aac";
-    }
+    }   
     
-    
-     /*Pegar Aquivos*/
+    /*Pegar Aquivos*/
     private File[] Ligar(String endereco) {
         File diretorio = new File(endereco);
         return diretorio.listFiles();
@@ -63,10 +55,8 @@ public class Musicas {
             }
         }
     }
-
     
-    
-        /*Realizar Alteraçoes*/
+    /*Realizar Alteraçoes*/
     public void Renomamu(String endereco, String banda, String[] nomesMu, int pradao) {
 
         /*Recebe aquivos*/
