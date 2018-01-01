@@ -28,99 +28,86 @@ public class JanelaMusicas extends javax.swing.JFrame {
     String diretorio;
     int numerodemusicas = 0;
     String[] arquivos = new String[99];
-    int pradao = 0;
+    int padrao = 0;
 
-    
-    
-    
-    
-    private void renomearTags(){
-       //Variaveis
-       
-       String subtitle;
-       String comments;
-       String contribuiting_artist;
-       String artist;
-       String album_artista;
-       String album;
-       String year;
-       String genre;
-       String img;
-       boolean numero;
-       
-       //
-       
-       
-       //Verificando
-       
-       if( jRadioButtonSubtitle.isSelected()){
-          subtitle = "<limpo>";
-       }else{
-           subtitle = jTextFieldSubtitle.getText();
-       }
-       
-       if(jRadioButtonComentario.isSelected()){
-           comments = "<limpo>";
-       }else{
-           comments = jTextFieldComentario.getText();
-       }
-       if(jRadioButtonArtista.isSelected()){
-           contribuiting_artist = "<limpo>";
-       }else{
-           contribuiting_artist = jTextFieldArtista.getText();
-       }
-       if(jRadioButtonAristaDoAlbum.isSelected() ){
-           album_artista = "<limpo>";
-       }else{
-           album_artista=jTextFieldAristaDoAlbum.getText();
-       }
-       if(jRadioButtonAlbum.isSelected()){
-           album= "<limpo>";
-       }else{
-           album =jTextFieldAlbum.getText();
-       }
-       if(jRadioButtonAno.isSelected()){
-           year="<limpo>";
-       }else{
-           year= jTextFieldAno.getText();
-       }
-       if(jRadioButtonGenero.isSelected()){
-           genre ="<limpo>";
-       }else{
-           genre=jTextFieldGenero.getText();
-       }
-       
-       //jRadioButtonRomImg
-       //implementar fucionalidade
-       if(jRadioButtonImg.isSelected()){
-           img ="<limpo>";
-       }else{
-           img=jTextFieldCapa.getText();
-       }
-       
-       if(jRadioButtonOrdemNumerica.isSelected()){
-           numero = true;
-       }else{
-           numero = false;
-       }
-       
-       //Chamar o construtor
-       
-       if(jRadioButtonAdicionarMusicas.isSelected()){
-           RenomearTags x = new RenomearTags(diretorio,arquivos,subtitle,comments, contribuiting_artist,album_artista, album, year,numero, genre,img);
-          
-           
-       }else{
-           RenomearTags x = new RenomearTags(diretorio,subtitle,comments, contribuiting_artist,album_artista, album, year,numero, genre,img);
-          
-       }
-    
-     
-       
-               
-        
+    private void renomearTags() {
+        //Variaveis
+
+        String subtitle;
+        String comments;
+        String contribuiting_artist;
+        String artist;
+        String album_artista;
+        String album;
+        String year;
+        String genre;
+        String img;
+        boolean numero;
+
+        //
+        //Verificando
+        if (jRadioButtonSubtitle.isSelected()) {
+            subtitle = "<limpo>";
+        } else {
+            subtitle = jTextFieldSubtitle.getText();
+        }
+
+        if (jRadioButtonComentario.isSelected()) {
+            comments = "<limpo>";
+        } else {
+            comments = jTextFieldComentario.getText();
+        }
+        if (jRadioButtonArtista.isSelected()) {
+            contribuiting_artist = "<limpo>";
+        } else {
+            contribuiting_artist = jTextFieldArtista.getText();
+        }
+        if (jRadioButtonAristaDoAlbum.isSelected()) {
+            album_artista = "<limpo>";
+        } else {
+            album_artista = jTextFieldAristaDoAlbum.getText();
+        }
+        if (jRadioButtonAlbum.isSelected()) {
+            album = "<limpo>";
+        } else {
+            album = jTextFieldAlbum.getText();
+        }
+        if (jRadioButtonAno.isSelected()) {
+            year = "<limpo>";
+        } else {
+            year = jTextFieldAno.getText();
+        }
+        if (jRadioButtonGenero.isSelected()) {
+            genre = "<limpo>";
+        } else {
+            genre = jTextFieldGenero.getText();
+        }
+
+        //jRadioButtonRomImg
+        //implementar fucionalidade
+        if (jRadioButtonImg.isSelected()) {
+            img = "<limpo>";
+        } else {
+            img = jTextFieldCapa.getText();
+        }
+
+        if (jRadioButtonOrdemNumerica.isSelected()) {
+            numero = true;
+        } else {
+            numero = false;
+        }
+
+        //Chamar o construtor
+        if (jRadioButtonAdicionarMusicas.isSelected()) {
+            RenomearTags x = new RenomearTags(diretorio, arquivos, subtitle, comments, contribuiting_artist, album_artista, album, year, numero, genre, img);
+
+        } else {
+            RenomearTags x = new RenomearTags(diretorio, subtitle, comments, contribuiting_artist, album_artista, album, year, numero, genre, img);
+
+        }
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -641,8 +628,8 @@ public class JanelaMusicas extends javax.swing.JFrame {
             jTextFieldEndereco.setText(diretorio);
 
             Musicas x = new Musicas();
-            x.NumeroMu(diretorio);
-            numerodemusicas = x.getCont_musica();
+            x.numeroDeMusicas(diretorio);
+            numerodemusicas = x.getContMusicas();
             if (numerodemusicas > 1) {
                 jLabelMsg.setForeground(Color.black);
                 jLabelMsg.setText(numerodemusicas + " Mússica Encontradas");
@@ -709,8 +696,8 @@ public class JanelaMusicas extends javax.swing.JFrame {
 
             Musicas x = new Musicas();
 
-            x.NumeroMu(diretorio);
-            numerodemusicas = x.getCont_musica();
+            x.numeroDeMusicas(diretorio);
+            numerodemusicas = x.getContMusicas();
             if (numerodemusicas > 1) {
                 jLabelMsg.setForeground(Color.black);
                 jLabelMsg.setText(numerodemusicas + " Musicas Encontradas");
@@ -751,11 +738,11 @@ public class JanelaMusicas extends javax.swing.JFrame {
         switch (jComboBoxPadrao.getSelectedIndex()) {
             case 0:
 
-                pradao = jComboBoxPadrao.getSelectedIndex() + 1;
+                padrao = jComboBoxPadrao.getSelectedIndex() + 1;
                 break;
             case 1:
 
-                pradao = jComboBoxPadrao.getSelectedIndex() + 1;
+                padrao = jComboBoxPadrao.getSelectedIndex() + 1;
                 break;
 
         }
@@ -765,14 +752,14 @@ public class JanelaMusicas extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Caso o usuario quereira renomear
         if (jRadioButtonConfirmaRenomear.isSelected() || jRadioButtonConfirmaTags.isSelected()) {
-            
+
             diretorio = jTextFieldEndereco.getText();
             if (jRadioButtonConfirmaRenomear.isSelected()) {
-                
+
                 Musicas x = new Musicas();
 
                 try {
-                    x.Renomamu(diretorio, jTextFieldArtista.getText(), arquivos, pradao);
+                    x.renomeiaMusicas(diretorio, jTextFieldArtista.getText(), arquivos, padrao);
                     jLabelMsg.setForeground(Color.green);
                     jLabelMsg.setText("Remeado");
                 } catch (Exception e) {
@@ -780,7 +767,7 @@ public class JanelaMusicas extends javax.swing.JFrame {
                     jLabelMsg.setText("Diretorio Incorreto");
                 }
             }
-            if(jRadioButtonConfirmaTags.isSelected()){
+            if (jRadioButtonConfirmaTags.isSelected()) {
                 renomearTags();
             }
 

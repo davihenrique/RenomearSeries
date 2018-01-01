@@ -9,11 +9,11 @@ import java.io.File;
 public class Musicas {
     
     private final String[] formatos = new String[5];
-    private int cont_musica = 0;
+    private int contMusicas = 0;
     private File novo;
         
     /*Lista de formatos suportados*/
-    private void Listaformatos() {
+    private void listaFormatos() {
         formatos[0] = ".mp3";
         formatos[1] = ".wma";
         formatos[2] = ".flac";
@@ -22,17 +22,17 @@ public class Musicas {
     }   
     
     /*Pegar Aquivos*/
-    private File[] Ligar(String endereco) {
+    private File[] ligar(String endereco) {
         File diretorio = new File(endereco);
         return diretorio.listFiles();
     }
 
     /*Metodo para volta numero de Musicas*/
-    public void NumeroMu(String endereco) {
+    public void numeroDeMusicas(String endereco) {
         /*Recebe aquivos*/
-        File arquivos[] = Ligar(endereco);
+        File arquivos[] = ligar(endereco);
         //carregar listas de formatos
-        Listaformatos();
+        listaFormatos();
         int result = 0;
         int format;
         for (int i = 0; i < arquivos.length; i++) {
@@ -44,11 +44,12 @@ public class Musicas {
                 } else {
                     format = 4;
                 }
+                
                 try {
                     result = String.valueOf(arquivos[i]).indexOf(formatos[j]);
                     if (result != -1 && result + format == String.valueOf(arquivos[i]).length()) {
                         /*Contador de aquivos*/
-                        cont_musica++;
+                        contMusicas++;
                     }
                 } catch (Exception e) {
                 }
@@ -57,14 +58,14 @@ public class Musicas {
     }
     
     /*Realizar Alteraçoes*/
-    public void Renomamu(String endereco, String banda, String[] nomesMu, int pradao) {
+    public void renomeiaMusicas(String endereco, String banda, String[] nomesMu, int padrao) {
 
         /*Recebe aquivos*/
-        File arquivos[] = Ligar(endereco);
+        File arquivos[] = ligar(endereco);
         /*carregar listas de formatos*/
-        Listaformatos();
+        listaFormatos();
 
-        cont_musica = 0;
+        contMusicas = 0;
         int result = 0;
         int format;
 
@@ -91,12 +92,12 @@ public class Musicas {
                     if (result != -1 && result + format == String.valueOf(arquivos[i]).length()) {
 
                         //System.out.println(String.valueOf(arquivos[i]));
-                        gravar(endereco, sistema, banda, nomesMu[cont_musica], formatos[j], cont_musica + 1, pradao);
+                        gravar(endereco, sistema, banda, nomesMu[contMusicas], formatos[j], contMusicas + 1, padrao);
 
                         arquivos[i].renameTo(novo);
 
                         /*Contador de aquivos*/
-                        cont_musica++;
+                        contMusicas++;
 
                     }
                 } catch (Exception e) {
@@ -115,35 +116,24 @@ public class Musicas {
                 if (cont > 9) {
                     novo = new File(endereco + sistema+ cont + " - " + nomesMu + formato);
                 } else {
-                    novo = new File(endereco + sistema+"0"+ cont + " - " + nomesMu + formato);
+                    novo = new File(endereco + sistema + "0" + cont + " - " + nomesMu + formato);
                     
                 }
                 break;
                 
             case 2:
                 if (cont > 9) {
-                    novo = new File(endereco + sistema+ cont +" "+banda +" - " + nomesMu + formato);
+                    novo = new File(endereco + sistema+ cont + " " + banda + " - " + nomesMu + formato);
                 } else {
-                    novo = new File(endereco + sistema+"0"+ cont +" "+ banda +" - " + nomesMu + formato);
+                    novo = new File(endereco + sistema + "0" + cont + " " + banda + " - " + nomesMu + formato);
                     
                 }
                 break;
-
         }
-
     }
-    
-    
-    
     
     /*Get para total de musicas*/
-    public int getCont_musica() {
-        return cont_musica;
+    public int getContMusicas() {
+        return contMusicas;
     }
-    
-    
-    
-
-    
-    
 }
